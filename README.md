@@ -1,29 +1,71 @@
-# Create React Express App
+![GitHub Last Commit](https://img.shields.io/github/last-commit/PuppyRoadTrip/showmyshow?style=plastic)
+![GitHub Repo Size](https://img.shields.io/github/repo-size/PuppyRoadTrip/showmyshow?style=plastic)
+![GitHub Followers](https://img.shields.io/github/followers/PuppyRoadTrip?style=social)
+![GitHub](https://img.shields.io/github/languages/top/PuppyRoadTrip/showmyshow?style=plastic)
 
-## About This Boilerplate
 
-This setup allows for a Node/Express/React app which can be easily deployed to Heroku.
+# Show My Show
+> This is a repository for the Show My Show App. (Update this section with additional text).
+ 
+## Table of contents
+* [General Info](#general-info)
+* [User Story](#user-story)
+* [Technologies](#technologies)
+* [Live Link](#Live-Link)
+* [Screen Shot](#Screen-Shot)
+* [Code Snippets](#code-snippets)
+* [Sources](#sources)
+* [Contact](#contact)
 
-The front-end React app will auto-reload as it's updated via webpack dev server, and the backend Express app will auto-reload independently with nodemon.
+## General Info
+TBD
 
-## Starting the app locally
+## User Story
+TBD
 
-Start by installing front and backend dependencies. While in this directory, run the following command:
+## Technologies
+* TBD
+* TBD
+* TBD
+* TBD
+* TBD
+* TBD
+* TBD
+* TBD
+* TBD
 
+## Live Link
+[TBD](TBD URL)
+
+## Screen Shot
+![TBD](TBD Path)
+
+## Code Snippets
+
+The below example code shows :
+```js
+// TBD Placeholder for example code
 ```
-npm install
+
+The below example code shows :
+```js
+// TBD Placeholder for example code
 ```
 
-This should install node modules within the server and the client folder.
-
-After both installations complete, run the following command in your terminal:
-
-```
-npm start
+The below example code shows :
+```js
+// TBD Placeholder for example code
 ```
 
-Your app should now be running on <http://localhost:3000>. The Express server should intercept any AJAX requests from the client.
+## Sources
+Application enabled using the following sources:
 
-## Deployment (Heroku)
+* [TBD](TBD URL)
+* [TBD](TBD URL)
+* [TBD](TBD URL)
+* [TBD](TBD URL)
 
-To deploy, simply add and commit your changes, and push to Heroku. As is, the NPM scripts should take care of the rest.
+## Contact
+Created by Puppy Road Trip LLC.
+
+[TBD](TBD URL)
