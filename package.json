@@ -1,7 +1,7 @@
 {
-  "name": "mern",
+  "name": "showmyshow",
   "version": "1.0.0",
-  "description": "Mern Demo",
+  "description": "This is an app that allows artists and fans to track the shows of various musicians as they tour.",
   "main": "server.js",
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
