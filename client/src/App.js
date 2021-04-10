@@ -8,8 +8,8 @@ import NavTabs from "../src/components/NavTabs/NavTabs";
 function App() {
   return (
     <>
-      <NavTabs />
       <Router>
+        <NavTabs/>
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/login" component={Login} />
