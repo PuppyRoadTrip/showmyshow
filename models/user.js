@@ -13,7 +13,7 @@ const userSchema = new Schema({
     savedShows: String,
     favoriteBands: String,
     location: String,
-    date: String,
+    showDate: String,
 });
 
 const User = mongoose.model("User", userSchema);
