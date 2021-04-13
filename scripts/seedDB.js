@@ -3,10 +3,16 @@ const db = require("../models");
 
 // This file empties the Books collection and inserts the books below
 
-mongoose.connect(
-    process.env.MONGODB_URI ||
-    "mongodb://localhost/showmyshow"
-);
+// mongoose.connect("mongodb+srv://allpuppies:pupp13r0@dtr1p@cluster0.4zg1x.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", {
+//   useNewUrlParser: true,
+//   useFindAndModify: false
+// });
+const MONGODB_URI = "mongodb+srv://allpuppies:pupp13r0adtr1p@cluster0.4zg1x.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+
+mongoose.connect(MONGODB_URI || "mongodb://localhost/showmyshow", {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+});
 
 const userSeed = [
     {
@@ -19,7 +25,7 @@ const userSeed = [
     }
 ];
 
-db.User
+db.User.deleteMany({})
     .remove({})
     .then(() => db.User.collection.insertMany(userSeed))
     .then(data => {
