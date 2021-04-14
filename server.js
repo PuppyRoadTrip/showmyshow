@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 const PORT = process.env.PORT || 3001;
 const app = express();
 const UserApiRoutes = require('./routes/UserApi');
+const ShowsAPI = require('./routes/ShowsAPI');
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -17,6 +18,8 @@ if (process.env.NODE_ENV === "production") {
 
 // Define API routes here
 app.use('/api/User', UserApiRoutes)
+// Change to plural USERS & lowercase - users
+app.use('/api/shows', ShowsAPI)
 
 
 // Send every other request to the React app

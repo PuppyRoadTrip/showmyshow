@@ -15,19 +15,12 @@ function searchTicketMaster() {
       APIkey
   )
     .then((res) => res.json())
-    .then(
-      (result) => {
-        result.forEach((event) => {
-          const eventInfo = {
-            name: result._embedded.events[i].name,
-            info: result._embedded.events[i].info,
-            note: result._embedded.events[i].pleaseNote,
-          };
-          console.log(eventInfo);
-        });
-      },
-      (error) => console.log(error)
-    );
+    .then((result) =>
+      console.log(
+        result._embedded.events
+      )
+    ),
+    (error) => console.log(error);
 }
 
 // ("https://app.ticketmaster.com/discovery/v2/events.json?classificationName=music&dmaId=324&apikey=JXAUfAxtClrIfr0jjt81uhCbzuiqtjAh");
