@@ -1,15 +1,15 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
-import { borderRadius } from '@material-ui/system';
 
 const useStyles = makeStyles((theme) => ({
   root: {
     '& > *': {
       margin: theme.spacing(1),
-      width: '35ch',
-      border: '2px solid #6129D9',
+      width: '30ch',
+      border: '2px solid #0DA67B',
       borderRadius: '15px',
+      backgroundColor: '#f5f5f5',
     },
   },
 }));

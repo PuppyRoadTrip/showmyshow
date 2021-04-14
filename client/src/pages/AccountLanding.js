@@ -1,5 +1,5 @@
 import React from "react";
-import NavBar from '../components/NavBar/NavBar';
+import HomeHeader from '../components/HomeHeader/HomeHeader';
 import BasicTextFields from '../components/EventSearchInput/EventSearchInput';
 import SimpleCard from '../components/Hero/Hero';
 import Maps from '../components/Maps/Maps';
@@ -10,7 +10,7 @@ function Landing() {
 
     return (
         <>
-        <NavBar />
+        <HomeHeader />
         <div className='container'>
             <div className='row' id='app-title'>
                 <div className='col s12 m12 l12'>

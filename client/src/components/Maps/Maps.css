@@ -1,5 +1,6 @@
 .card-panel {
     height: 250px;
     background-image: url('./map.jpg');
-    border: 2px solid #6129D9;
+    border: 2px solid #0DA67B;
+    border-radius: 15px;
 }
