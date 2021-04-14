@@ -1,5 +1,6 @@
 import React from 'react';
 import NavTabs from '../NavTabs/NavTabs';
+import ImageAvatars from '../UserImage/UserImage';
 import './NavBar.css';
 
 function NavBar() {
@@ -7,7 +8,9 @@ function NavBar() {
         <>
             <nav className='navigation'>
                 <div className="nav-wrapper">
-                    <NavTabs />
+                <ImageAvatars />
+                <span><NavTabs /></span>
+                
                 </div>
             </nav>
         </>
