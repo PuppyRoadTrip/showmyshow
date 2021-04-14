@@ -18,6 +18,12 @@ function NavTabs() {
       >
         | Login
       </Link>
+      <Link
+        to="/landing"
+        // className={location.pathname === "/login" ? "nav-link active" : "nav-link"}
+      >
+        || Landing
+      </Link>
     </div>
   );
 }
