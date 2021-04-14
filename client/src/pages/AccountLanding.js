@@ -3,6 +3,7 @@ import HomeHeader from '../components/HomeHeader/HomeHeader';
 import BasicTextFields from '../components/EventSearchInput/EventSearchInput';
 import Hero from '../components/Hero/Hero';
 import Maps from '../components/Maps/Maps';
+import NavTabs from '../components/NavTabs/NavTabs';
 import SimpleAccordion from '../components/Accordian/Accordian';
 import './Home.css';
 
@@ -40,10 +41,12 @@ function Landing() {
                     <SimpleAccordion />
                 </div>
             </div>
-            <div className='row' style={{justifyContent: 'center'}}>
-                <div className='col s12 m12 l12'>
-                <a className="waves-effect waves-light btn-small">Logout</a>
-                </div>
+            <div className='row' id='nav-tabs'>
+                <div className='col s0 m0 l4'></div>
+                    <div className='col s12 m12 l4'>
+                        <NavTabs />
+                    </div>
+                <div className='col s0 m0 l4'></div>
             </div>
         </div>
         </>
