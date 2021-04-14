@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { TextField, Button } from "@material-ui/core";
+import NavTabs from '../components/NavTabs/NavTabs';
 
 function Login() {
 
@@ -21,6 +22,7 @@ function Login() {
 
     return (
         <div>
+        <NavTabs />
             <TextField
                 style={{ margin: 8 }}
                 placeholder="username"

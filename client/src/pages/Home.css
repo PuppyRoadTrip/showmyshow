@@ -1,0 +1,26 @@
+html {
+    background: url('../images/homebackground.png') no-repeat center center fixed;
+    background-size: cover;
+}
+
+#app-title {
+    text-align: center;
+    justify-content: center;
+}
+
+#event-input {
+    text-align: center;
+    justify-content: center;
+}
+
+#hero-card {
+    justify-content: center;
+    align-items: center;
+}
+
+#home-map {
+    display: block;
+    margin-left: auto;
+    margin-right: auto
+}
+

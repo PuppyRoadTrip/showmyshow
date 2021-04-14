@@ -10,13 +10,13 @@ function NavTabs() {
           to="/"
           //   className={location.pathname === "/" ? "nav-link active" : "nav-link"}
         >
-        Home
+        Home |
       </Link>
       <Link
         to="/login"
         // className={location.pathname === "/login" ? "nav-link active" : "nav-link"}
       >
-        Login
+        | Login
       </Link>
     </div>
   );
