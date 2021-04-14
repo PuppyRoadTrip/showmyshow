@@ -29,6 +29,14 @@ const userSeed = [
         favoriteBands: "Outkast",
         location: "Portland",
         showDate: "04/29/21"
+    },
+    {
+        username: "puppyroadtrip",
+        password: "tadaam",
+        savedShows: "the Phish from Vermont (tm)",
+        favoriteBands: "Slipknot",
+        location: "Portland",
+        showDate: "08/29/21"
     }
 
 ];
