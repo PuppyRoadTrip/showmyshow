@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from "../src/pages/Home";
 import Login from "../src/pages/Login";
 import NavTabs from "../src/components/NavTabs/NavTabs";
-import ShowsAPI from "./utils/ShowsAPI";
+import ShowsAPI from "./utils/ClientShowsAPI";
 
 function App() {
   
