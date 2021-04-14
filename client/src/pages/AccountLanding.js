@@ -3,6 +3,7 @@ import NavBar from '../components/NavBar/NavBar';
 import BasicTextFields from '../components/EventSearchInput/EventSearchInput';
 import SimpleCard from '../components/Hero/Hero';
 import Maps from '../components/Maps/Maps';
+import SimpleAccordion from '../components/Accordian/Accordian';
 import './Home.css';
 
 function Landing() {
@@ -30,6 +31,12 @@ function Landing() {
             <div className='row' id='home-map'>
                 <div className='col s12 m12 l12'>
                     <Maps />
+                </div>
+            </div>
+            <br></br>
+            <div className='row' id='home-map'>
+                <div className='col s12 m12 l12'>
+                    <SimpleAccordion />
                 </div>
             </div>
             <div className='row' style={{justifyContent: 'center'}}>
