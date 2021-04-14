@@ -12,6 +12,9 @@ function NavTabs() {
         <Button variant='contained' className='home-buttons' id='login' href='/login'>
             Login
         </Button>
+        <Button variant='contained' className='home-buttons' id='login' href='/landing'>
+            Landing
+        </Button>
     </div>
   );
 }
