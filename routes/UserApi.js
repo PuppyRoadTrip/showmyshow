@@ -1,5 +1,5 @@
 const Router = require("express").Router();
-const User = require("../models/User");
+const User = require("../models/user");
 
 Router.get("/", async (req, res) => {
     try {
