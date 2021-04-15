@@ -25,7 +25,12 @@ app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "./client/public/index.html"));
 });
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/showmyshow");
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/showmyshow",  {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useCreateIndex: true,
+  useFindAndModify: false
+});
 
 
 app.listen(PORT, () => {
