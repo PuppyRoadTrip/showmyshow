@@ -5,7 +5,7 @@ import AccordionSummary from "@material-ui/core/AccordionSummary";
 import AccordionDetails from "@material-ui/core/AccordionDetails";
 import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import BasicTextFields from '../EventSearchInput/EventSearchInput';
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -17,7 +17,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SimpleAccordion({ showList }) {
+export default function SimpleAccordion({ events }) {
+  
   const classes = useStyles();
 
   return (
