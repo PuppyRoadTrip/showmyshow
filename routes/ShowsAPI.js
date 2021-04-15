@@ -26,7 +26,6 @@ Router.get("/", async (req, res) => {
 });
 
 Router.get("/:city/:state", async (req, res) => {
-  console.log('We got to line 29 of back end route');
   const APIkey = process.env.TM_API_KEY;
   const city = req.params.city;
   const state = req.params.state;
