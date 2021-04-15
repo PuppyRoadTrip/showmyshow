@@ -1,23 +1,20 @@
-import React from "react";
-import { BrowserRouter as Router, Link } from "react-router-dom";
+import React from 'react';
+import '../NavTabs/NavTabs.css';
+import Button from '@material-ui/core/Button';
 
 function NavTabs() {
-  // const location = useLocation();
 
   return (
     <div>
-        <Link
-          to="/"
-          //   className={location.pathname === "/" ? "nav-link active" : "nav-link"}
-        >
-        Home
-      </Link>
-      <Link
-        to="/login"
-        // className={location.pathname === "/login" ? "nav-link active" : "nav-link"}
-      >
-        Login
-      </Link>
+        <Button variant='contained' className='home-buttons' id='home' href='/'>
+            Home
+        </Button>
+        <Button variant='contained' className='home-buttons' id='login' href='/login'>
+            Login
+        </Button>
+        <Button variant='contained' className='home-buttons' id='login' href='/landing'>
+            Landing
+        </Button>
     </div>
   );
 }
