@@ -19,32 +19,23 @@ const useStyles = makeStyles((theme) => ({
 export default function BasicTextFields() {
   const classes = useStyles();
 
-  const [showState, setShowState] = useState({ city: "", state: "" });  
-
-  const handleTMAPISearch = async (event) => {
-    event.preventDefault();
-    console.log(showState);
-    const showList = await TMAPI.getCityShows(showState.city, showState.state).then(res => res.data);
-    console.log('showList console log from EventSearchInput file', showList);
-  };
-
   return (
     <form
       className={classes.root}
       noValidate
       autoComplete="off"
-      onSubmit={handleTMAPISearch}
+      // onSubmit={handleTMAPISearch}
     >
       <TextField
         id="outlined-basic"
         label="City, ST (Ex: Bend, OR)"
         variant="outlined"
-        onChange={(event) =>
-          setShowState({
-            city: event.target.value.split(",")[0],
-            state: event.target.value.split(", ")[1],
-          })
-        }
+        // onChange={(event) =>
+        //   setShowState({
+        //     city: event.target.value.split(",")[0],
+        //     state: event.target.value.split(", ")[1],
+        //   })
+        // }
       />
       <Button variant="contained" color="secondary" type="submit">
         Search
