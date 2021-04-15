@@ -11,7 +11,8 @@
     "install": "cd client && npm install",
     "build": "cd client && npm run build",
     "heroku-postbuild": "npm run build",
-    "seed": "node scripts/seedDB.js"
+    "seed": "node scripts/seedDB.js",
+    "scrape": "node twitter_api_test_search.js"
   },
   "author": "",
   "license": "ISC",
