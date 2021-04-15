@@ -23,7 +23,7 @@ const TicketMasterCard = () => {
 
   const [showState, setShowState] = useState({ city: "Dallas", state: "TX" });
 
-  useEffect(() => ShowsAPI.getCityShows(showState.city, showState.state).then(console.log), []);
+  useEffect(() => ShowsAPI.getCityShows("Portland", "OR").then(console.log), []);
 
   console.log(showState);
 
