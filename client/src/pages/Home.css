@@ -16,14 +16,14 @@ html {
 #hero-card {
     justify-content: center;
     align-items: center;
-    text-align: center;
 }
 
 #spotlight {
     padding: 10px;
     background-color: #0DA67B;
     border-radius: 10px;
-    color: #f5f5f5;
+    color: rgba(0, 0, 0, 0.87);
+    text-align: center;
 }
 
 #home-map {
@@ -35,5 +35,12 @@ html {
 #nav-tabs {
     justify-content: center;
     align-items: center;
+}
+
+#saved-banner {
+    color: rgba(0, 0, 0, 0.87);
+    background-color: #0DA67B;
+    padding: 10px;
+    border-radius: 5px;
 }
 
