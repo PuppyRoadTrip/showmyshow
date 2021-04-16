@@ -6,6 +6,7 @@ import AccordionDetails from "@material-ui/core/AccordionDetails";
 import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 
+
 const useStyles = makeStyles((theme) => ({
   root: {
     width: "100%",
@@ -16,10 +17,17 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SimpleAccordion() {
+export default function EventAccordions({ events }) {
+  return events.map(event => <EventAccordion key={event.id} event={event} />)
+} 
+
+function EventAccordion({ event }) {
+
+  console.log("event is: ", event)
   const classes = useStyles();
 
   return (
+
     <div className={classes.root}>
       <Accordion>
         <AccordionSummary
@@ -27,39 +35,24 @@ export default function SimpleAccordion() {
           aria-controls="panel1a-content"
           id="panel1a-header"
         >
-          <Typography className={classes.heading}>Show #1</Typography>
+          <Typography 
+          className={classes.heading}
+          >
+          {event.name}
+          </Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>First show info</Typography>
-        </AccordionDetails>
-      </Accordion>
-
-      <Accordion>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel2a-content"
-          id="panel2a-header"
-        >
-          <Typography className={classes.heading}>Show #3</Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography>
-            Second Show info
+          <Typography><a 
+          href={event.url}>
+          Ticket Master Link:{event.url}
+          </a>
+          <br></br>
+          Venue:{event._embedded.venues[0].name}
+          {/* images */}
+          {/* show descrition */}
+          {/* <img href={event._embedded.image[0]} /> */}
           </Typography>
         </AccordionDetails>
-      </Accordion>
-
-      <Accordion>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel3a-content"
-          id="panel3a-header"
-        >
-          <Typography className={classes.heading}>Show #4</Typography>
-        </AccordionSummary>
-        <Typography>
-            Third Show info
-          </Typography>
       </Accordion>
     </div>
   );
