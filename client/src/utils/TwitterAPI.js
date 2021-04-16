@@ -20,9 +20,7 @@ const TwitterAPISearch = () => {
     function (error, tweets, response) {
       tweets.statuses.forEach(function (tweet) {
         console.log(tweet.user.screen_name + ": " + tweet.text);
-        const handle = tweet.user.screen_name;
-        const tweetText = tweet.text;
-        return `${handle}: ${tweetText}`
+        return tweet;
       });
     }
   );
