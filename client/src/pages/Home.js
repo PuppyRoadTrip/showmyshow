@@ -7,7 +7,6 @@ import Maps from '../components/Maps/Maps';
 import './Home.css';
 
 function Home() {
-
     return (
         <>
         <HomeHeader />
@@ -26,10 +25,16 @@ function Home() {
                 </div>
             <div className='col s0 m0 l4'></div>
             </div>
+            <div className='row'>
+                <div className='col s3 m3 l3'></div>
+                <div className='col s6 m6 l6'>
+                <h6><span id='spotlight'>Artist Spotlight:</span></h6>
+                </div>
+                <div className='col s3 m3 l3'></div>
+            </div>
             <div className='row' id='hero-card'>
                 <div className='col s0 m0 l4'></div>
                 <div className='col s12 m12 l4'>
-                    <h6><span id='spotlight'>Artist Spotlight:</span></h6>
                     <Hero />
                 </div>
                 <div className='col s0 m0 l4'></div>
@@ -41,8 +46,7 @@ function Home() {
                         <NavTabs />
                     </div>
                 <div className='col s0 m0 l4'></div>
-            </div>
-            
+            </div>           
         </div>
         </>
     )
