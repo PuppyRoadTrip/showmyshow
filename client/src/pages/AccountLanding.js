@@ -7,7 +7,7 @@ import Button from "@material-ui/core/Button";
 import Hero from '../components/Hero/Hero';
 import Maps from '../components/Maps/Maps';
 import NavTabs from '../components/NavTabs/NavTabs';
-import SimpleAccordion from '../components/Accordian/Accordian';
+import EventAccordions from '../components/Accordian/Accordian';
 import './Home.css';
 
 function Landing() {
@@ -25,15 +25,14 @@ function Landing() {
     const classes = useStyles();
 
     const [showState, setShowState] = useState({ city: "", state: "" });
-    const [eventState, setEventState] = useState({});
+    const [eventsState, setEventsState] = useState([]);
 
     const handleTMAPISearch = async (event) => {
         event.preventDefault();
         console.log(showState);
         const showList = await TMAPI.getCityShows(showState.city, showState.state).then(res => {
             const { events } = res.data._embedded;
-            console.log(events);
-            setEventState(events)
+            setEventsState(events)
         })
     };
 
@@ -88,7 +87,7 @@ function Landing() {
                 <div className='row' id='home-map'>
                     <div className='col s12 m12 l12'>
                         {/* need to pass props (event array) into this accordion!!! */}
-                        <SimpleAccordion />
+                        <EventAccordions events={eventsState} />
                     </div>
                 </div>
                 <div className='row' id='nav-tabs'>
