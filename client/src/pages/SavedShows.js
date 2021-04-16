@@ -1,7 +1,7 @@
 import React from "react";
 import InternalHeader from '../components/InternalHeader/InternalHeader';
 import './Home.css';
-import SavedShowCard from '../components/SaveShowCard/SavedShowCard';
+import SavedShowCard from '../components/SavedShowCard/SavedShowCard';
 import NavTabs from '../components/NavTabs/NavTabs';
 
 function SavedShows() {

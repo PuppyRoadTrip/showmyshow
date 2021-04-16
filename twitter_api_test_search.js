@@ -16,6 +16,6 @@ const client = new Twitter({
 // var params = {screen_name: 'cloudycodes'};
 client.get('search/tweets', {q: '#showmyshow'}, function(error, tweets, response) {
     tweets.statuses.forEach(function(tweet) {
-        console.log("tweet: " + tweet.text)
+        console.log(tweet.user.screen_name + ": " + tweet.text)
     });
  });
