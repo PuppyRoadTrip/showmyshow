@@ -14,6 +14,12 @@ const showSchema = new Schema({
   date: {
     type: String,
   },
+  description: {
+    type: String,
+  },
+  image: {
+    type: String,
+  },
 });
 
 const Show = mongoose.model('Show', showSchema);
