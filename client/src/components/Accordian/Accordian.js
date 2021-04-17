@@ -18,8 +18,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function EventAccordions({ events }) {
-  return events.map(event => <EventAccordion key={event.id} event={event} />)
+export default function EventAccordions({ events, onClick }) {
+  return events.map(event => <EventAccordion key={event.id} event={event} onClick={onClick}/>)
 } 
 
 function EventAccordion({ event, onClick }) {
@@ -53,7 +53,7 @@ function EventAccordion({ event, onClick }) {
           {/* show descrition */}
           {/* <img href={event._embedded.image[0]} /> */}
           <br></br>
-          <a href="/saved"><Button onClick={onClick}>Save Shows</Button></a>
+          <a href="/saved"><Button onClick={onClick}>Save Show</Button></a>
           </Typography>
         </AccordionDetails>
       </Accordion>

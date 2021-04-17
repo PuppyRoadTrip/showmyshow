@@ -36,6 +36,16 @@ function Landing() {
         })
     };
 
+    const saveShow = async (event) => {
+        event.preventDefault();
+      const requestOptions = {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ show: eventsState[event.target.id]})
+      };
+      await fetch("/api/save", requestOptions);
+    }
+
     return (
         <>
             <InternalHeader />
@@ -93,7 +103,7 @@ function Landing() {
                 <div className='row' id='home-map'>
                     <div className='col s12 m12 l12'>
                         {/* need to pass props (event array) into this accordion!!! */}
-                        <EventAccordions events={eventsState} />
+                        <EventAccordions events={eventsState}  onClick={saveShow} />
                     </div>
                 </div>
                 <div className='row' id='nav-tabs'>
