@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
-const db = require('../models');
+const User = require('../models/User');
+const Show = require('../models/Show')
 
 require('dotenv').config();
 
@@ -21,9 +22,32 @@ const userSeed = [
   },
 ];
 
-db.User.deleteMany({})
+const showSeed = [
+  {
+    title:'',
+    ticketUrl:'',
+    venue:'',
+    date:'',
+    description:'',
+    image:''
+  },
+];
+
+User.deleteMany({})
   .remove({})
-  .then(() => db.User.collection.insertMany(userSeed))
+  .then(() => User.collection.insertMany(userSeed))
+  .then((data) => {
+    console.log(data.result.n + ' records inserted!');
+    process.exit(0);
+  })
+  .catch((err) => {
+    console.error(err);
+    process.exit(1);
+  });
+
+Show.deleteMany({})
+  .remove({})
+  .then(() => Show.collection.insertMany(showSeed))
   .then((data) => {
     console.log(data.result.n + ' records inserted!');
     process.exit(0);
