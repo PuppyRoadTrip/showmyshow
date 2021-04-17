@@ -20,6 +20,7 @@ const TwitterAPISearch = () => {
     function (error, tweets, response) {
       tweets.statuses.forEach(function (tweet) {
         console.log(tweet.user.screen_name + ": " + tweet.text);
+        // cannot return a forEach? Need to change way we grab this value
         return tweet;
       });
     }
