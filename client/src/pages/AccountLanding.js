@@ -9,6 +9,7 @@ import Maps from '../components/Maps/Maps';
 import NavTabs from '../components/NavTabs/NavTabs';
 import EventAccordions from '../components/Accordian/Accordian';
 import './Home.css';
+// import saveShow from "../utils/saveShow"
 
 function Landing() {
 
@@ -38,13 +39,14 @@ function Landing() {
 
     const saveShow = async (event) => {
         event.preventDefault();
-      const requestOptions = {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ show: eventsState[event.target.id]})
+        const requestOptions = {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ show: eventsState[event.target.id] }),
+        };
+        await fetch("/api/save", requestOptions);
       };
-      await fetch("/api/save", requestOptions);
-    }
+      
 
     return (
         <>
