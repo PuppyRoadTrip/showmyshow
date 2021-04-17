@@ -1,46 +1,45 @@
 html {
-    background: url('../images/homebackground.jpg') no-repeat center center fixed;
-    background-size: cover;
+  background: url('../images/homebackground.jpg') no-repeat center center fixed;
+  background-size: cover;
 }
 
 #app-title {
-    text-align: center;
-    justify-content: center;
+  text-align: center;
+  justify-content: center;
 }
 
 #event-input {
-    text-align: center;
-    justify-content: center;
+  text-align: center;
+  justify-content: center;
 }
 
 #hero-card {
-    justify-content: center;
-    align-items: center;
+  justify-content: center;
+  align-items: center;
 }
 
 #spotlight {
-    padding: 10px;
-    background-color: #0DA67B;
-    border-radius: 10px;
-    color: rgba(0, 0, 0, 0.87);
-    text-align: center;
+  padding: 10px;
+  background-color: #0da67b;
+  border-radius: 10px;
+  color: rgba(0, 0, 0, 0.87);
+  text-align: center;
 }
 
 #home-map {
-    display: block;
-    margin-left: auto;
-    margin-right: auto
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #nav-tabs {
-    justify-content: center;
-    align-items: center;
+  justify-content: center;
+  align-items: center;
 }
 
 #saved-banner {
-    color: rgba(0, 0, 0, 0.87);
-    background-color: #0DA67B;
-    padding: 10px;
-    border-radius: 5px;
+  color: rgba(0, 0, 0, 0.87);
+  background-color: #0da67b;
+  padding: 10px;
+  border-radius: 5px;
 }
-

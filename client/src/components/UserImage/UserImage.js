@@ -17,7 +17,7 @@ export default function ImageAvatars() {
 
   return (
     <div className={classes.root}>
-      <Avatar alt='image holder' src={image} className={classes.large} />
+      <Avatar alt="image holder" src={image} className={classes.large} />
     </div>
   );
 }
