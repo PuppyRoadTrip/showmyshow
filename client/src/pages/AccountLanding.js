@@ -37,12 +37,12 @@ function Landing() {
         })
     };
 
-    const saveShow = async (event) => {
-        event.preventDefault();
+    const saveShow = async (e) => {
+        e.preventDefault();
         const requestOptions = {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ show: eventsState[event.target.id] }),
+          body: JSON.stringify({ show: eventsState[e.target.event.id] }),
         };
         await fetch("/api/save", requestOptions);
         window.location.replace("/saved");

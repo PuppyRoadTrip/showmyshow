@@ -6,7 +6,7 @@ const apiSecretKey = process.env.REACT_APP_TWITTER_SECRET_API_KEY;
 const accessToken = process.env.REACT_APP_TWITTER_ACCESS_TOKEN;
 const accessSecretToken = process.env.REACT_APP_TWITTER_SECRET_ACCESS_TOKEN;
 
-const TwitterAPISearch = () => {
+const TwitterAPISearch = (setTweetState) => {
   const client = new Twitter({
     consumer_key: apiKey,
     consumer_secret: apiSecretKey,
@@ -14,15 +14,20 @@ const TwitterAPISearch = () => {
     access_token_secret: accessSecretToken,
   });
 
-  client.get(
+  return client.get(
     "search/tweets",
     { q: "#showmyshow" },
     function (error, tweets, response) {
-      tweets.statuses.forEach(function (tweet) {
-        console.log(tweet.user.screen_name + ": " + tweet.text);
-        // cannot return a forEach? Need to change way we grab this value
-        return tweet;
-      });
+      if (error) {
+        alert("check console for err from Twitter")
+        console.error(error);
+      }
+      setTweetState(tweets.statuses)
+      // tweets.statuses.map(function (tweet) {
+      //   console.log(tweet.user.screen_name + ": " + tweet.text);
+      //   // cannot return a forEach? Need to change way we grab this value
+      //   return tweet;
+      // });
     }
   );
 };

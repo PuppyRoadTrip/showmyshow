@@ -15,10 +15,7 @@ function Home() {
     useEffect(async () => {
         // e.preventDefault();
         console.log(tweetState);
-        const tweetList = await TwitterAPISearch.then((res) => {
-            const { tweets } = res.data;
-            setTweetState(tweets);
-        });
+        const tweetList = await TwitterAPISearch(setTweetState);
     }, []);
 
 
