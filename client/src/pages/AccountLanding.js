@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import InternalHeader from '../components/InternalHeader/InternalHeader';
-import TMAPI from "../utils/TMAPI";
+import TicketMasterAPI from "../utils/TicketMasterAPI";
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
@@ -28,21 +28,21 @@ function Landing() {
     const [showState, setShowState] = useState({ city: "", state: "" });
     const [eventsState, setEventsState] = useState([]);
 
-    const handleTMAPISearch = async (event) => {
+    const handleTicketMasterAPISearch = async (event) => {
         event.preventDefault();
         console.log(showState);
-        const showList = await TMAPI.getCityShows(showState.city, showState.state).then(res => {
+        const showList = await TicketMasterAPI.getCityShows(showState.city, showState.state).then(res => {
             const { events } = res.data._embedded;
             setEventsState(events)
         })
     };
 
-    const saveShow = async (event) => {
-        event.preventDefault();
+    const saveShow = async (e) => {
+        e.preventDefault();
         const requestOptions = {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ show: eventsState[event.target.id] }),
+          body: JSON.stringify({ show: eventsState[e.target.event.id] }),
         };
         await fetch("/api/save", requestOptions);
         window.location.replace("/saved");
@@ -61,7 +61,7 @@ function Landing() {
                             className={classes.root}
                             noValidate
                             autoComplete="off"
-                            onSubmit={handleTMAPISearch}
+                            onSubmit={handleTicketMasterAPISearch}
                         >
                             <TextField
                                 id="outlined-basic"

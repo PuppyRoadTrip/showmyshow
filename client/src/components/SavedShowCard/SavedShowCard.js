@@ -1,6 +1,6 @@
 import React from 'react';
 import './SavedShowCard.css';
-import image1 from '../SaveShowCard/dnd.jpg';
+import image1 from './dnd.jpg';
 
 function SavedShowCard() {
     return (
