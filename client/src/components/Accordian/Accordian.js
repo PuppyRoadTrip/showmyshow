@@ -5,6 +5,7 @@ import AccordionSummary from "@material-ui/core/AccordionSummary";
 import AccordionDetails from "@material-ui/core/AccordionDetails";
 import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import Button from "@material-ui/core/Button";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -17,11 +18,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function EventAccordions({ events }) {
-  return events.map(event => <EventAccordion key={event.id} event={event} />)
+export default function EventAccordions({ events, onClick }) {
+  return events.map(event => <EventAccordion key={event.id} event={event} onClick={onClick}/>)
 } 
 
-function EventAccordion({ event }) {
+function EventAccordion({ event, onClick }) {
 
   console.log("event is: ", event)
   const classes = useStyles();
@@ -51,6 +52,8 @@ function EventAccordion({ event }) {
           {/* images */}
           {/* show descrition */}
           {/* <img href={event._embedded.image[0]} /> */}
+          <br></br>
+          <a href="/saved"><Button onClick={onClick}>Save Show</Button></a>
           </Typography>
         </AccordionDetails>
       </Accordion>

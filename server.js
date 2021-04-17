@@ -6,6 +6,7 @@ const PORT = process.env.PORT || 3001;
 const app = express();
 const UsersAPIRoutes = require('./routes/UsersAPI');
 const ShowsAPIRoutes = require('./routes/ShowsAPI');
+const SavedShowsAPIRoutes = require("./routes/SavedShowsAPI")
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
@@ -20,6 +21,7 @@ if (process.env.NODE_ENV === "production") {
 // Define API routes here
 app.use('/api/users', UsersAPIRoutes)
 app.use('/api/shows', ShowsAPIRoutes)
+app.use('/api', SavedShowsAPIRoutes)
 
 
 // Send every other request to the React app
