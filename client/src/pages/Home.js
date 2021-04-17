@@ -4,7 +4,7 @@ import NavTabs from "../components/NavTabs/NavTabs";
 import BasicTextFields from "../components/EventSearchInput/EventSearchInput";
 import Hero from "../components/Hero/Hero";
 import Maps from "../components/Maps/Maps";
-import TwitterAPISearch from "../utils/TwitterAPI";
+import TwitterAPI from "../utils/TwitterAPI";
 import TwitterCards from "../components/TwitterCard/TwitterCard";
 import "./Home.css";
 
@@ -12,10 +12,8 @@ function Home() {
     const [tweetState, setTweetState] = useState([]);
 
 
-    useEffect(async () => {
-        // e.preventDefault();
-        console.log(tweetState);
-        const tweetList = await TwitterAPISearch(setTweetState);
+    useEffect(() => {
+        TwitterAPI.getTweets().then(tweetList => setTweetState(tweetList));
     }, []);
 
 
