@@ -5,10 +5,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import './DropDownMenu.css';
 
-const options = [
-  'Saved Shows',
-  'Sign Out',
-];
+const options = ['Saved Shows', 'Sign Out'];
 
 const ITEM_HEIGHT = 48;
 
@@ -48,7 +45,11 @@ export default function LongMenu() {
         }}
       >
         {options.map((option) => (
-          <MenuItem key={option} selected={option === 'Pyxis'} onClick={handleClose}>
+          <MenuItem
+            key={option}
+            selected={option === 'Pyxis'}
+            onClick={handleClose}
+          >
             {option}
           </MenuItem>
         ))}
