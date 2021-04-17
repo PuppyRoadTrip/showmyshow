@@ -45,6 +45,7 @@ function Landing() {
           body: JSON.stringify({ show: eventsState[event.target.id] }),
         };
         await fetch("/api/save", requestOptions);
+        window.location.replace("/saved");
       };
       
 
