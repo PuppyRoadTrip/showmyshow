@@ -35,5 +35,8 @@
     "node-fetch": "^2.6.1",
     "react-router-dom": "^5.2.0",
     "twitter": "^1.7.1"
+  },
+  "prettier": {
+    "singleQuote": true
   }
 }
