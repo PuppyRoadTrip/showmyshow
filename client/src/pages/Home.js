@@ -8,7 +8,7 @@ import twitterApi from '../utils/twitterApi';
 import TwitterCards from '../components/TwitterCard/TwitterCard';
 import SpacingColumn from '../components/MaterialColumn/SpacingColumn';
 import CenteringColumn from '../components/MaterialColumn/CenteringColumn';
-import './Home.css';
+import './Style.css';
 
 function Home() {
   const [tweetState, setTweetState] = useState([]);

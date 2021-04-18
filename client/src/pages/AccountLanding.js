@@ -7,10 +7,12 @@ import Button from '@material-ui/core/Button';
 import Hero from '../components/Hero/Hero';
 import Maps from '../components/Maps/Maps';
 import NavTabs from '../components/NavTabs/NavTabs';
+import SpacingColumn from '../components/MaterialColumn/SpacingColumn';
 import EventAccordions from '../components/Accordian/Accordian';
-import './Home.css';
+import './Style.css';
 // import saveShow from '../utils/saveShow';
 import axios from 'axios';
+import CenteringColumn from '../components/MaterialColumn/CenteringColumn';
 
 function Landing() {
   const useStyles = makeStyles((theme) => ({
@@ -40,11 +42,14 @@ function Landing() {
   };
 
   const saveShow = async (e) => {
-    await axios.post('/api/save', {
-      show: eventsState[e.target.id],
-      // figure out which event they clicked on
-      // save the title, ticketURL, venue, description, date, image to DB
-    }).then((res)=> console.log(res)).catch(err => console.log(err));
+    await axios
+      .post('/api/save', {
+        show: eventsState[e.target.id],
+        // figure out which event they clicked on
+        // save the title, ticketURL, venue, description, date, image to DB
+      })
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
     window.location.replace('/saved');
   };
 
@@ -53,69 +58,65 @@ function Landing() {
       <InternalHeader />
       <div className="container">
         <div className="row" id="event-input">
-          <div className="col s0 m0 l4"></div>
-          <div className="col s12 m12 l4">
-            {/* Break this compnent into form and button */}
-            <form
-              className={classes.root}
-              noValidate
-              autoComplete="off"
-              onSubmit={handleTicketMasterAPISearch}
-            >
-              <TextField
-                id="outlined-basic"
-                label="City, ST (Ex: Bend, OR)"
-                variant="outlined"
-                onChange={(event) =>
-                  setShowState({
-                    city: event.target.value.split(',')[0],
-                    state: event.target.value.split(', ')[1],
-                  })
-                }
-              />
-              <Button variant="contained" color="secondary" type="submit">
-                Search
-              </Button>
-            </form>
-          </div>
-          <div className="col s0 m0 l4"></div>
+          <SpacingColumn />
+          <CenteringColumn
+            component={
+              <form
+                className={classes.root}
+                noValidate
+                autoComplete="off"
+                onSubmit={handleTicketMasterAPISearch}
+              >
+                <TextField
+                  id="outlined-basic"
+                  label="City, ST (Ex: Bend, OR)"
+                  variant="outlined"
+                  onChange={(event) =>
+                    setShowState({
+                      city: event.target.value.split(',')[0],
+                      state: event.target.value.split(', ')[1],
+                    })
+                  }
+                />
+                <Button variant="contained" color="secondary" type="submit">
+                  Search
+                </Button>
+              </form>
+            }
+          />
+          <SpacingColumn />
         </div>
+
         <div className="row" id="home-map">
-          <div className="col s0 m0 l4"></div>
-          <div className="col s12 m12 l4">
-            <Maps />
-          </div>
-          <div className="col s0 m0 l4"></div>
+          <SpacingColumn />
+            <CenteringColumn component={<Maps />}/>
+          <SpacingColumn />
         </div>
-        <div className="row">
-          <div className="col s3 m3 l0"></div>
-          <div className="col s6 m6 l12">
-            <h6>
-              <span id="spotlight">Artist Spotlight:</span>
-            </h6>
-          </div>
-          <div className="col s3 m3 l0"></div>
+
+        <div className="row" id="spotlight-row">
+          <h6>
+            <span id="spotlight">Artist Spotlight:</span>
+          </h6>
         </div>
+
         <div className="row" id="hero-card">
-          <div className="col s0 m0 l4"></div>
-          <div className="col s12 m12 l4">
-            <Hero />
-          </div>
-          <div className="col s0 m0 l4"></div>
+          <SpacingColumn />
+            <CenteringColumn component={<Hero />}/>
+          <SpacingColumn />
         </div>
         <br></br>
+
         <div className="row" id="home-map">
           <div className="col s12 m12 l12">
             {/* need to pass props (event array) into this accordion!!! */}
             <EventAccordions events={eventsState} onClick={saveShow} />
           </div>
         </div>
+
         <div className="row" id="nav-tabs">
-          <div className="col s0 m0 l4"></div>
-          <div className="col s12 m12 l4">
-            <NavTabs />
-          </div>
-          <div className="col s0 m0 l4"></div>
+          <SpacingColumn />
+            <CenteringColumn component={<NavTabs />}/>
+          <SpacingColumn />
         </div>
       </div>
     </>
