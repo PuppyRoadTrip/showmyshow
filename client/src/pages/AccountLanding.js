@@ -41,7 +41,7 @@ function Landing() {
 
   const saveShow = async (e) => {
     await axios.post('/api/save', {
-      show: "this is a save show test",
+      show: eventsState[e.target.id],
     }).then((res)=> console.log(res)).catch(err => console.log(err));
     window.location.replace('/saved');
   };
