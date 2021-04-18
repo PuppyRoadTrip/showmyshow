@@ -6,6 +6,8 @@ import Hero from '../components/Hero/Hero';
 import Maps from '../components/Maps/Maps';
 import twitterApi from '../utils/twitterApi';
 import TwitterCards from '../components/TwitterCard/TwitterCard';
+import SpacingColumn from '../components/MaterialColumn/SpacingColumn';
+import CenteringColumn from '../components/MaterialColumn/CenteringColumn';
 import './Home.css';
 
 function Home() {
@@ -21,23 +23,21 @@ function Home() {
       <div className="container">
 {/* Consider moving login/signup option to nav bar */}
       <div className="row" id="nav-tabs">
-          <div className="col s0 m0 l4"></div>
-          <div className="col s12 m12 l4">
-            <NavTabs />
-          </div>
-          <div className="col s0 m0 l4"></div>
+          <SpacingColumn />
+            <CenteringColumn component={<NavTabs />}/>
+          <SpacingColumn />
         </div>
+
         <div className="row" id="event-input">
-          <div className="col s0 m0 l4"></div>
-          <div className="col s12 m12 l4">{BasicTextFields()}</div>
-          <div className="col s0 m0 l4"></div>
+          <SpacingColumn />
+            <CenteringColumn component={BasicTextFields()}/>
+          <SpacingColumn />
         </div>
+
         <div className="row" id="home-map">
-          <div className="col s0 m0 l4"></div>
-          <div className="col s12 m12 l4">
-            <Maps />
-          </div>
-          <div className="col s0 m0 l4"></div>
+          <SpacingColumn />
+            <CenteringColumn component={<Maps />}/>
+          <SpacingColumn />
         </div>
 
         <div className='row' id='spotlight-row'>
@@ -45,20 +45,16 @@ function Home() {
         </div>
 
         <div className="row" id="hero-card">
-          <div className="col s0 m0 l4"></div>
-          <div className="col s12 m12 l4">
-            <Hero />
-          </div>
-          <div className="col s0 m0 l4"></div>
+          <SpacingColumn />
+            <CenteringColumn component={<Hero />}/>
+          <SpacingColumn />
         </div>
         <br></br>
 
         <div className='row' id='twitter-card-row'>
-            <div className="col s0 m0 l4"></div>
-            <div className='col s12 m12 l4'>
-                <TwitterCards tweets={tweetState} />
-            </div>
-            <div className="col s0 m0 l4"></div>
+            <SpacingColumn />
+              <CenteringColumn component={<TwitterCards tweets={tweetState} />}/>
+            <SpacingColumn />
         </div>
 
       </div>
