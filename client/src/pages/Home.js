@@ -19,6 +19,7 @@ function Home() {
     <>
       <HomeHeader />
       <div className="container">
+{/* Consider moving login/signup option to nav bar */}
       <div className="row" id="nav-tabs">
           <div className="col s0 m0 l4"></div>
           <div className="col s12 m12 l4">
@@ -38,24 +39,28 @@ function Home() {
           </div>
           <div className="col s0 m0 l4"></div>
         </div>
-        <div className="row">
-          <div className="col s3 m3 l3"></div>
-          <div className="col s6 m6 l6">
-            <h6>
-              <span id="spotlight">Artist Spotlight:</span>
-            </h6>
-          </div>
-          <div className="col s3 m3 l3"></div>
+
+        <div className='row' id='spotlight-row'>
+            <h6><span id='spotlight'>Artist Spotlight:</span></h6>
         </div>
+
         <div className="row" id="hero-card">
           <div className="col s0 m0 l4"></div>
           <div className="col s12 m12 l4">
             <Hero />
-            <TwitterCards tweets={tweetState} />
           </div>
           <div className="col s0 m0 l4"></div>
         </div>
         <br></br>
+
+        <div className='row' id='twitter-card-row'>
+            <div className="col s0 m0 l4"></div>
+            <div className='col s12 m12 l4'>
+                <TwitterCards tweets={tweetState} />
+            </div>
+            <div className="col s0 m0 l4"></div>
+        </div>
+
       </div>
     </>
   );

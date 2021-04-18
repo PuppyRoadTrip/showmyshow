@@ -6,7 +6,7 @@ const PORT = process.env.PORT || 3001;
 const app = express();
 const UsersAPIRoutes = require('./routes/UsersAPI');
 const ShowsAPIRoutes = require('./routes/ShowsAPI');
-const TwitterAPIRoutes = require('./routes/TwitterAPI');
+const TwitterAPIRoutes = require('./routes/twitterApi');
 const SavedShowsAPIRoutes = require('./routes/SavedShowsAPI');
 
 // Define middleware here
