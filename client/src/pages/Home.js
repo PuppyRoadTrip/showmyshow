@@ -19,6 +19,13 @@ function Home() {
     <>
       <HomeHeader />
       <div className="container">
+      <div className="row" id="nav-tabs">
+          <div className="col s0 m0 l4"></div>
+          <div className="col s12 m12 l4">
+            <NavTabs />
+          </div>
+          <div className="col s0 m0 l4"></div>
+        </div>
         <div className="row" id="event-input">
           <div className="col s0 m0 l4"></div>
           <div className="col s12 m12 l4">{BasicTextFields()}</div>
@@ -49,13 +56,6 @@ function Home() {
           <div className="col s0 m0 l4"></div>
         </div>
         <br></br>
-        <div className="row" id="nav-tabs">
-          <div className="col s0 m0 l4"></div>
-          <div className="col s12 m12 l4">
-            <NavTabs />
-          </div>
-          <div className="col s0 m0 l4"></div>
-        </div>
       </div>
     </>
   );
