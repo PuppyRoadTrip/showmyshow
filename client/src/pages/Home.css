@@ -18,12 +18,23 @@ html {
   align-items: center;
 }
 
+#twitter-card-row {
+  justify-content: center;
+  align-items: center;
+}
+
 #spotlight {
   padding: 10px;
   background-color: #0da67b;
   border-radius: 10px;
   color: rgba(0, 0, 0, 0.87);
   text-align: center;
+}
+
+#spotlight-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 #home-map {

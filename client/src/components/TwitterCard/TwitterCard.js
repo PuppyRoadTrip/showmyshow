@@ -1,4 +1,5 @@
 import React from 'react';
+import './TwitterCard.css';
 
 export default function TwitterCards({ tweets }) {
   console.log('This is the TwitterCards console', tweets);
@@ -6,15 +7,16 @@ export default function TwitterCards({ tweets }) {
 }
 
 function TwitterCard({ tweet }) {
+  // Add in a header (like "Artist Spotlight") for the tweet cards section
   return (
     <div className="row">
-      <div className="col s12 m6">
-        <div className="card blue-grey darken-1">
-          <div className="card-content white-text">
-            <span className="card-title">
-              Twitter Handle: {tweet.screen_name}
+      <div className="col s12">
+        <div className="card" id='twitter-card-color'>
+          <div className="card-content">
+            <span className="card-title" id='twitter-card-title'>
+              @{tweet.screen_name}
             </span>
-            <span className="card-title">Tweet: {tweet.text}</span>
+            <span className="card-title" id='twitter-card-text'>{tweet.text}</span>
           </div>
         </div>
       </div>
