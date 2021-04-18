@@ -46,9 +46,7 @@ function EventAccordion({ event, onClick }) {
             {/* show descrition */}
             {/* <img href={event._embedded.image[0]} /> */}
             <br></br>
-            <a href="/saved">
               <Button onClick={onClick}>Save Show</Button>
-            </a>
           </Typography>
         </AccordionDetails>
       </Accordion>
