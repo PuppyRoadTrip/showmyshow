@@ -41,7 +41,7 @@ function Home() {
         </div>
 
         <div className='row' id='spotlight-row'>
-            <h6><span id='spotlight'>Artist Spotlight:</span></h6>
+            <h5><span id='spotlight'>Artist Spotlight:</span></h5>
         </div>
 
         <div className="row" id="hero-card">
