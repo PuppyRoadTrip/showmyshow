@@ -78,7 +78,8 @@ function Landing() {
                     })
                   }
                 />
-                <Button variant="contained" color="secondary" type="submit">
+                <br></br>
+                <Button id='landing-search-btn' variant="contained" color="secondary" type="submit">
                   Search
                 </Button>
               </form>
@@ -86,17 +87,17 @@ function Landing() {
           />
           <SpacingColumn />
         </div>
-
+      
         <div className="row" id="home-map">
           <SpacingColumn />
-            <CenteringColumn component={<Maps />}/>
+            <CenteringColumn component={<EventAccordions events={eventsState} onClick={saveShow} />}/>
           <SpacingColumn />
         </div>
 
         <div className="row" id="spotlight-row">
-          <h6>
+          <h5>
             <span id="spotlight">Artist Spotlight:</span>
-          </h6>
+          </h5>
         </div>
 
         <div className="row" id="hero-card">
@@ -105,13 +106,6 @@ function Landing() {
           <SpacingColumn />
         </div>
         <br></br>
-
-        <div className="row" id="home-map">
-          <div className="col s12 m12 l12">
-            {/* need to pass props (event array) into this accordion!!! */}
-            <EventAccordions events={eventsState} onClick={saveShow} />
-          </div>
-        </div>
 
         <div className="row" id="nav-tabs">
           <SpacingColumn />

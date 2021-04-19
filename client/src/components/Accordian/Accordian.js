@@ -6,6 +6,7 @@ import AccordionDetails from '@material-ui/core/AccordionDetails';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Button from '@material-ui/core/Button';
+import './Accordian.css';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -39,14 +40,14 @@ function EventAccordion({ event, onClick }) {
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            <a href={event.url}>Ticket Master Link:{event.url}</a>
+            <a href={event.url}>Get Tickets</a>
             <br></br>
-            Venue:{event._embedded.venues[0].name}
+            Venue: {event._embedded.venues[0].name}
             {/* images */}
             {/* show descrition */}
             {/* <img href={event._embedded.image[0]} /> */}
             <br></br>
-              <Button onClick={onClick}>Save Show</Button>
+              <Button id='save-show-btn' onClick={onClick}>Save Show</Button>
           </Typography>
         </AccordionDetails>
       </Accordion>

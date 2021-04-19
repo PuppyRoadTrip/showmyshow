@@ -15,9 +15,9 @@ function SavedShows() {
 
       <div className="container">
         <div className="row" id="spotlight-row">
-          <h6>
+          <h5>
             <span id="spotlight">Saved Shows</span>
-          </h6>
+          </h5>
         </div>
 
         <div className="row">
