@@ -2,10 +2,21 @@ import axios from 'axios';
 // Placeholder for abstraction
 
 export default {
-  saveShow: function (eventsState) {
-    return axios.post('/api/save', {
-      show: eventsState,
-    });
+  // Gets all save
+  getShows: function() {
+    return axios.get("/api/saved/");
   },
+  // Gets the book with the given id
+  getShows: function(id) {
+    return axios.get("/api/saved/" + id);
+  },
+  // Deletes the book with the given id
+  deleteShows: function(id) {
+    return axios.delete("/api/saved/" + id);
+  },
+  // Saves a book to the database
+  saveShows: function(showData) {
+    return axios.post("/api/saved/", showData);
+  }
 };
 

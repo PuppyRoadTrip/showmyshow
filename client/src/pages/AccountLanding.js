@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import InternalHeader from '../components/InternalHeader/InternalHeader';
 import ticketMasterApi from '../utils/ticketMasterApi';
 import { makeStyles } from '@material-ui/core/styles';
@@ -10,7 +10,7 @@ import NavTabs from '../components/NavTabs/NavTabs';
 import SpacingColumn from '../components/MaterialColumn/SpacingColumn';
 import EventAccordions from '../components/Accordian/Accordian';
 import './Style.css';
-// import saveShow from '../utils/saveShow';
+import API from "../utils/saveShow"
 import axios from 'axios';
 import CenteringColumn from '../components/MaterialColumn/CenteringColumn';
 
@@ -40,18 +40,65 @@ function Landing() {
         setEventsState(events);
       });
   };
+  // Start of test
+  // Load all books and store them with setBooks
+  useEffect(() => {
+    loadShows()
+  }, [])
+  console.log(loadShows);
 
-  const saveShow = async (e) => {
-    await axios
-      .post('/api/save', {
-        show: eventsState[e.target.id],
-        // figure out which event they clicked on
-        // save the title, ticketURL, venue, description, date, image to DB
-      })
-      .then((res) => console.log(res))
-      .catch((err) => console.log(err));
-    window.location.replace('/saved');
+   // Loads all books and sets them to books
+   function loadShows() {
+    API.getShows()
+      .then(res => 
+        setShowState(res.data)
+      )
+      .catch(err => console.log(err));
   };
+
+  // Deletes a book from the database with a given id, then reloads books from the db
+  function deleteShow(id) {
+    API.deleteShow(id)
+      .then(res => loadShows())
+      .catch(err => console.log(err));
+  }
+
+    // Handles updating component state when the user types into the input field
+    function saveShow(events) {
+      const { name, value } = events.target;
+      setShowState({...showState, [name]: value})
+    };
+
+    // When the form is submitted, use the API.saveBook method to save the book data
+  // Then reload books from the database
+  function savedShow(event) {
+    event.preventDefault();
+    if (showState.title && showState.date) {
+      API.saveShow({
+        title: showState.title,
+        ticketUrl: showState.ticketUrl,
+        venue: showState.venue,
+        date: showState.date,
+        description: showState.description,
+        image: showState.image
+      })
+        .then(res => loadShows())
+        .catch(err => console.log(err));
+    }
+  };
+
+
+  // const saveShow = async (e) => {
+  //   await axios
+  //     .post('/api/save', {
+  //       show: eventsState[e.target.id],
+  //       // figure out which event they clicked on
+  //       // save the title, ticketURL, venue, description, date, image to DB
+  //     })
+  //     .then((res) => console.log(res))
+  //     .catch((err) => console.log(err));
+  //   window.location.replace('/saved');
+  // };
 
   return (
     <>
@@ -90,7 +137,7 @@ function Landing() {
       
         <div className="row" id="home-map">
           <SpacingColumn />
-            <CenteringColumn component={<EventAccordions events={eventsState} onClick={saveShow} />}/>
+            <CenteringColumn component={<EventAccordions events={eventsState} onClick={saveShow} {...savedShow} />}/>
           <SpacingColumn />
         </div>
 
