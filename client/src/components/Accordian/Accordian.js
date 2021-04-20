@@ -40,13 +40,18 @@ function EventAccordion({ event, onClick }) {
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            <a href={event.url}>Get Tickets</a>
-            <br></br>
             Venue: {event._embedded.venues[0].name}
-            {/* images */}
-            {/* show descrition */}
-            {/* <img href={event._embedded.image[0]} /> */}
-            <br></br>
+            <br/>
+            <a href={event.url}>Get Tickets</a>
+            <br/>
+            {/* Date: {event.dates.initialStartDate.localDate} */}
+            <br/>
+            Info: {event.info}
+            <br/>
+            Please Note: {event.pleaseNote}
+
+            
+            <img src={event.images[1].url}/>
               <Button id='save-show-btn' onClick={onClick}>Save Show</Button>
           </Typography>
         </AccordionDetails>
