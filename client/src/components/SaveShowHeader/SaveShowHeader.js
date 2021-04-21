@@ -5,7 +5,7 @@ import './SaveShowHeader.css';
 
 function SaveShowHeader() {
   return (
-    <div className="row" id="internal-header">
+    <div className="row" id="saved-header">
       <div className="col s2 m2 l2">
         <ImageAvatars />
       </div>
