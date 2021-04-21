@@ -12,9 +12,8 @@ function App() {
     <>
       <Router>
         <Switch>
-          {/* <Route exact path="/" component={Home} /> */}
+          <Route exact path="/" component={HomeLanding} />
           <Route exact path="/login" component={Login} />
-          <Route exact path="/landing" component={HomeLanding} />
           <Route exact path="/saved" component={SavedShows} />
           <Route exact path="/chat" component={ChatRoomHome} />
           <Route exact path="/:roomId" component={ChatRoom} />
