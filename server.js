@@ -69,6 +69,6 @@ io.on('connection', (socket) => {
   });
 });
 
-app.listen(PORT, () => {
+http.listen(PORT, () => {
   console.log(`🌎 ==> API server now on port ${PORT}!`);
 });   
