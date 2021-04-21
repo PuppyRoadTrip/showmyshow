@@ -3,9 +3,9 @@ import IconButton from '@material-ui/core/IconButton';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
-import './DropDownMenu.css';
+import './SaveDropDown.css';
 
-const options = ['Saved Shows', 'Sign Out'];
+const options = ['Home', 'Sign Out'];
 
 const ITEM_HEIGHT = 48;
 
@@ -24,6 +24,7 @@ export default function LongMenu() {
   return (
     <div>
       <IconButton
+        id='save-dots'
         aria-label="more"
         aria-controls="long-menu"
         aria-haspopup="true"

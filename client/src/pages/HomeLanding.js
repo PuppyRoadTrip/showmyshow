@@ -1,18 +1,18 @@
-import React, { useState } from 'react';
-import InternalHeader from '../components/InternalHeader/InternalHeader';
+import React, { useState, useEffect } from 'react';
+import HomeHeader from '../components/HomeHeader/HomeHeader';
 import ticketMasterApi from '../utils/ticketMasterApi';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Hero from '../components/Hero/Hero';
-import Maps from '../components/Maps/Maps';
 import NavTabs from '../components/NavTabs/NavTabs';
 import SpacingColumn from '../components/MaterialColumn/SpacingColumn';
 import EventAccordions from '../components/Accordian/Accordian';
 import './Style.css';
-// import saveShow from '../utils/saveShow';
 import axios from 'axios';
 import CenteringColumn from '../components/MaterialColumn/CenteringColumn';
+import twitterApi from '../utils/twitterApi';
+import TwitterCards from '../components/TwitterCard/TwitterCard';
 
 function Landing() {
   const useStyles = makeStyles((theme) => ({
@@ -26,6 +26,12 @@ function Landing() {
   }));
 
   const classes = useStyles();
+
+  const [tweetState, setTweetState] = useState([]);
+
+  useEffect(() => {
+    twitterApi.getTweets().then((tweetList) => setTweetState(tweetList));
+  }, []);
 
   const [showState, setShowState] = useState({ city: '', state: '' });
   const [eventsState, setEventsState] = useState([]);
@@ -55,7 +61,7 @@ function Landing() {
 
   return (
     <>
-      <InternalHeader />
+      <HomeHeader />
       <div className="container">
         <div className="row" id="event-input">
           <SpacingColumn />
@@ -78,7 +84,13 @@ function Landing() {
                     })
                   }
                 />
-                <Button variant="contained" color="secondary" type="submit">
+                <br></br>
+                <Button
+                  id="landing-search-btn"
+                  variant="contained"
+                  color="secondary"
+                  type="submit"
+                >
                   Search
                 </Button>
               </form>
@@ -89,33 +101,36 @@ function Landing() {
 
         <div className="row" id="home-map">
           <SpacingColumn />
-            <CenteringColumn component={<Maps />}/>
+          <CenteringColumn
+            component={
+              <EventAccordions events={eventsState} onClick={saveShow} />
+            }
+          />
           <SpacingColumn />
         </div>
 
         <div className="row" id="spotlight-row">
-          <h6>
+          <h5>
             <span id="spotlight">Artist Spotlight:</span>
-          </h6>
+          </h5>
         </div>
 
         <div className="row" id="hero-card">
           <SpacingColumn />
-            <CenteringColumn component={<Hero />}/>
+          <CenteringColumn component={<Hero />} />
           <SpacingColumn />
         </div>
         <br></br>
 
-        <div className="row" id="home-map">
-          <div className="col s12 m12 l12">
-            {/* need to pass props (event array) into this accordion!!! */}
-            <EventAccordions events={eventsState} onClick={saveShow} />
-          </div>
+        <div className="row" id="twitter-card-row">
+          <SpacingColumn />
+          <CenteringColumn component={<TwitterCards tweets={tweetState} />} />
+          <SpacingColumn />
         </div>
 
         <div className="row" id="nav-tabs">
           <SpacingColumn />
-            <CenteringColumn component={<NavTabs />}/>
+          <CenteringColumn component={<NavTabs />} />
           <SpacingColumn />
         </div>
       </div>

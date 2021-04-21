@@ -1,5 +1,5 @@
 html {
-  background: url('../images/homebackground.jpg') no-repeat center center fixed;
+  background: url('../images/addverse.jpg') no-repeat center center fixed;
   background-size: cover;
 }
 
@@ -11,6 +11,20 @@ html {
 #event-input {
   text-align: center;
   justify-content: center;
+}
+
+/* Landing page input field */
+input[type='text']:not(.browser-default) {
+  background-color: #f5f5f5;
+  width: 200px;
+  border-radius: 10px;
+  border: 2px solid #0da67b;
+}
+
+#landing-search-btn {
+  background-color: #56dff5;
+  color: rgba(0, 0, 0, 0.87);
+  margin-top: 15px;
 }
 
 #hero-card {
@@ -29,6 +43,7 @@ html {
   border-radius: 10px;
   color: rgba(0, 0, 0, 0.87);
   text-align: center;
+  opacity: 0.9;
 }
 
 #spotlight-row {

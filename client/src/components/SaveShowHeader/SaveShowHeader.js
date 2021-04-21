@@ -1,20 +1,20 @@
 import React from 'react';
 import ImageAvatars from '../UserImage/UserImage';
-import DropDownMenu from '../DropDownMenu/DropDownMenu';
-import './InternalHeader.css';
+import SaveDropDown from '../SaveDropDown/SaveDropDown';
+import './SaveShowHeader.css';
 
-function InternalHeader() {
+function SaveShowHeader() {
   return (
-    <div className="row" id="internal-header">
+    <div className="row" id="saved-header">
       <div className="col s2 m2 l2">
         <ImageAvatars />
       </div>
       <div className="col s8 m8 l8"></div>
       <div className="col s2 m2 l2">
-        <DropDownMenu />
+        <SaveDropDown />
       </div>
     </div>
   );
 }
 
-export default InternalHeader;
+export default SaveShowHeader;
