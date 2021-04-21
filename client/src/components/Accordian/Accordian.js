@@ -6,6 +6,7 @@ import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Button from '@material-ui/core/Button';
 import './Accordian.css';
+import axios from 'axios';
 
 export default function EventAccordions({ events, onClick }) {
   return events.map((event) => (
@@ -14,7 +15,26 @@ export default function EventAccordions({ events, onClick }) {
 }
 
 function EventAccordion({ event, onClick }) {
-  console.log('event is: ', event);
+  console.log('event is: ', event.id);
+
+  const saveShow = async (e) => {
+    console.log(event.name, event._embedded.venues[0].name)
+    await axios
+      .post('/api/save', {
+        title: event.name,
+        ticketUrl: event.url,
+        venue: event._embedded.venues[0].name,
+        pleaseNote: event.pleaseNote,
+        image: event.url
+
+        // figure out which event they clicked on
+        // save the title, ticketURL, venue, description, date, image to DB
+      })
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
+    window.location.replace('/saved');
+  };
+  const classes = useStyles();
 
   return (
     <div>
@@ -46,11 +66,10 @@ function EventAccordion({ event, onClick }) {
               {event._embedded.venues[0].name}
             </p>
             <a href={event.url}>Get Tickets</a>
-            <br />
-            <br />
-            <Button id="save-show-btn" onClick={onClick}>
-              Save Show
-            </Button>
+            <br/>
+            Date: {event.dates.start.localDate}
+            <br/>
+              <Button id='save-show-btn' onClick={saveShow}>Save Show</Button>
           </div>
         </AccordionDetails>
       </Accordion>
