@@ -34,7 +34,6 @@ function EventAccordion({ event, onClick }) {
       .catch((err) => console.log(err));
     window.location.replace('/saved');
   };
-  const classes = useStyles();
 
   return (
     <div>
@@ -66,8 +65,6 @@ function EventAccordion({ event, onClick }) {
               {event._embedded.venues[0].name}
             </p>
             <a href={event.url}>Get Tickets</a>
-            <br/>
-            Date: {event.dates.start.localDate}
             <br/>
               <Button id='save-show-btn' onClick={saveShow}>Save Show</Button>
           </div>
