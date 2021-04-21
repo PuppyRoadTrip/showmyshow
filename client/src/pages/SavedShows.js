@@ -11,7 +11,6 @@ function SavedShows() {
   return (
     <>
       <SaveShowHeader />
-      <NavTabs />
       <br></br>
 
       <div className="container">
@@ -26,6 +25,7 @@ function SavedShows() {
           <CenteringColumn component={<SavedShowCard />} />
           <SpacingColumn />
         </div>
+        <NavTabs />
       </div>
     </>
   );

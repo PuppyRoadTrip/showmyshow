@@ -5,9 +5,9 @@ import Button from '@material-ui/core/Button';
 function NavTabs() {
   return (
     <div>
-      <Button variant="contained" className="home-buttons" id="home" href="/">
+      {/* <Button variant="contained" className="home-buttons" id="home" href="/">
         Home
-      </Button>
+      </Button> */}
       <Button
         variant="contained"
         className="home-buttons"

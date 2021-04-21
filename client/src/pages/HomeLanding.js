@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import LandingHeader from '../components/LandingHeader/LandingHeader';
+import HomeHeader from '../components/HomeHeader/HomeHeader';
 import ticketMasterApi from '../utils/ticketMasterApi';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
@@ -9,7 +9,6 @@ import NavTabs from '../components/NavTabs/NavTabs';
 import SpacingColumn from '../components/MaterialColumn/SpacingColumn';
 import EventAccordions from '../components/Accordian/Accordian';
 import './Style.css';
-// import saveShow from '../utils/saveShow';
 import axios from 'axios';
 import CenteringColumn from '../components/MaterialColumn/CenteringColumn';
 import twitterApi from '../utils/twitterApi';
@@ -62,7 +61,7 @@ function Landing() {
 
   return (
     <>
-      <LandingHeader />
+      <HomeHeader />
       <div className="container">
         <div className="row" id="event-input">
           <SpacingColumn />
