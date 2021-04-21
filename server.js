@@ -9,6 +9,20 @@ const ShowsAPIRoutes = require('./routes/ShowsAPI');
 const TwitterAPIRoutes = require('./routes/twitterApi');
 const SavedShowsAPIRoutes = require('./routes/SavedShowsAPI');
 
+//socket dependencies
+const http = require('http').Server(app);
+const io = require('socket.io')(http, {
+  cors: {
+    origin: 'http://localhost:3001',
+    methods: ['GET', 'POST'],
+    allowedHeaders: ['chat'],
+    credentials: true
+  },
+});
+const NEW_CHAT_MESSAGE_EVENT = 'newChatMessage';
+
+
+
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -25,7 +39,6 @@ app.use('/api/shows', ShowsAPIRoutes)
 app.use('/api/twitter', TwitterAPIRoutes)
 app.use('/api', SavedShowsAPIRoutes)
 
-
 // Send every other request to the React app
 // Define any API routes before this runs
 app.get('*', (req, res) => {
@@ -39,7 +52,23 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/showmyshow',  {
   useFindAndModify: false
 });
 
+//socket connections
+io.on('connection', (socket) => {
+  //join conversation
+  const { roomId } = socket.handshake.query;
+  socket.join(roomId);
 
-app.listen(PORT, () => {
+  //new message listener
+  socket.on(NEW_CHAT_MESSAGE_EVENT, (data) => {
+    io.in(roomId).emit(NEW_CHAT_MESSAGE_EVENT, data);
+  });
+
+  //Leave room if user closes socket
+  socket.on('disconnect', () => {
+    socket.leave(roomId);
+  });
+});
+
+http.listen(PORT, () => {
   console.log(`🌎 ==> API server now on port ${PORT}!`);
 });   
