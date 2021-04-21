@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import LandingHeader from '../components/LandingHeader/LandingHeader';
 import ticketMasterApi from '../utils/ticketMasterApi';
 import { makeStyles } from '@material-ui/core/styles';
@@ -12,6 +12,8 @@ import './Style.css';
 // import saveShow from '../utils/saveShow';
 import axios from 'axios';
 import CenteringColumn from '../components/MaterialColumn/CenteringColumn';
+import twitterApi from '../utils/twitterApi';
+import TwitterCards from '../components/TwitterCard/TwitterCard';
 
 function Landing() {
   const useStyles = makeStyles((theme) => ({
@@ -25,6 +27,12 @@ function Landing() {
   }));
 
   const classes = useStyles();
+
+  const [tweetState, setTweetState] = useState([]);
+
+  useEffect(() => {
+    twitterApi.getTweets().then((tweetList) => setTweetState(tweetList));
+  }, []);
 
   const [showState, setShowState] = useState({ city: '', state: '' });
   const [eventsState, setEventsState] = useState([]);
@@ -78,7 +86,12 @@ function Landing() {
                   }
                 />
                 <br></br>
-                <Button id='landing-search-btn' variant="contained" color="secondary" type="submit">
+                <Button
+                  id="landing-search-btn"
+                  variant="contained"
+                  color="secondary"
+                  type="submit"
+                >
                   Search
                 </Button>
               </form>
@@ -86,10 +99,14 @@ function Landing() {
           />
           <SpacingColumn />
         </div>
-      
+
         <div className="row" id="home-map">
           <SpacingColumn />
-            <CenteringColumn component={<EventAccordions events={eventsState} onClick={saveShow} />}/>
+          <CenteringColumn
+            component={
+              <EventAccordions events={eventsState} onClick={saveShow} />
+            }
+          />
           <SpacingColumn />
         </div>
 
@@ -101,14 +118,20 @@ function Landing() {
 
         <div className="row" id="hero-card">
           <SpacingColumn />
-            <CenteringColumn component={<Hero />}/>
+          <CenteringColumn component={<Hero />} />
           <SpacingColumn />
         </div>
         <br></br>
 
+        <div className="row" id="twitter-card-row">
+          <SpacingColumn />
+          <CenteringColumn component={<TwitterCards tweets={tweetState} />} />
+          <SpacingColumn />
+        </div>
+
         <div className="row" id="nav-tabs">
           <SpacingColumn />
-            <CenteringColumn component={<NavTabs />}/>
+          <CenteringColumn component={<NavTabs />} />
           <SpacingColumn />
         </div>
       </div>
