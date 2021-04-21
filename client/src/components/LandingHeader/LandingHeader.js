@@ -1,9 +1,9 @@
 import React from 'react';
 import ImageAvatars from '../UserImage/UserImage';
-import DropDownMenu from '../DropDownMenu/DropDownMenu';
-import './InternalHeader.css';
+import LandingDropDown from '../LandingDropDown/LandingDropDown';
+import './LandingHeader.css';
 
-function InternalHeader() {
+function LandingHeader() {
   return (
     <div className="row" id="internal-header">
       <div className="col s2 m2 l2">
@@ -11,10 +11,10 @@ function InternalHeader() {
       </div>
       <div className="col s8 m8 l8"></div>
       <div className="col s2 m2 l2">
-        <DropDownMenu />
+        <LandingDropDown />
       </div>
     </div>
   );
 }
 
-export default InternalHeader;
+export default LandingHeader;

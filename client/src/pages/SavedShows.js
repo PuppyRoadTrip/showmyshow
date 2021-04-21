@@ -1,15 +1,16 @@
 import React from 'react';
-import InternalHeader from '../components/InternalHeader/InternalHeader';
+// import InternalHeader from '../components/InternalHeader/InternalHeader';
 import './Style.css';
 import SavedShowCard from '../components/SavedShowCard/SavedShowCard';
 import SpacingColumn from '../components/MaterialColumn/SpacingColumn';
 import CenteringColumn from '../components/MaterialColumn/CenteringColumn';
 import NavTabs from '../components/NavTabs/NavTabs';
+import SaveShowHeader from '../components/SaveShowHeader/SaveShowHeader';
 
 function SavedShows() {
   return (
     <>
-      <InternalHeader />
+      <SaveShowHeader />
       <NavTabs />
       <br></br>
 

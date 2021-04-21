@@ -1,5 +1,4 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import Accordion from '@material-ui/core/Accordion';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
@@ -8,16 +7,6 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Button from '@material-ui/core/Button';
 import './Accordian.css';
 import axios from 'axios';
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    width: '100%',
-  },
-  heading: {
-    fontSize: theme.typography.pxToRem(15),
-    fontWeight: theme.typography.fontWeightRegular,
-  },
-}));
 
 export default function EventAccordions({ events, onClick }) {
   return events.map((event) => (
@@ -48,31 +37,40 @@ function EventAccordion({ event, onClick }) {
   const classes = useStyles();
 
   return (
-    <div className={classes.root}>
-      <Accordion>
+    <div>
+      <Accordion id="accordion-tiles">
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1a-content"
           id="panel1a-header"
         >
-          <Typography className={classes.heading}>{event.name}</Typography>
+          <Typography id="event-name">{event.name}</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
-            Venue: {event._embedded.venues[0].name}
-            <br/>
+          <div>
+            <img id="event-image" src={event.images[1].url} />
+            <p>
+              <span className="field-span">Date: </span> 
+            {event.dates.start.localDate}
+            </p>
+            <p>
+              <span className="field-span">Event Info: </span>
+              {event.info}
+            </p>
+            <p>
+              <span className="field-span">Please Note: </span>
+              {event.pleaseNote}
+            </p>
+            <p>
+              <span className="field-span">Venue:</span>{' '}
+              {event._embedded.venues[0].name}
+            </p>
             <a href={event.url}>Get Tickets</a>
             <br/>
-            {/* Date: {event.dates.initialStartDate.localDate} */}
+            Date: {event.dates.start.localDate}
             <br/>
-            Info: {event.info}
-            <br/>
-            Please Note: {event.pleaseNote}
-
-            
-            <img src={event.images[1].url}/>
               <Button id='save-show-btn' onClick={saveShow}>Save Show</Button>
-          </Typography>
+          </div>
         </AccordionDetails>
       </Accordion>
     </div>
