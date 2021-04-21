@@ -56,7 +56,7 @@ function Home() {
               <CenteringColumn component={<TwitterCards tweets={tweetState} />}/>
             <SpacingColumn />
         </div>
-
+    
       </div>
     </>
   );

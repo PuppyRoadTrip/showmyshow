@@ -1,5 +1,5 @@
 html {
-  background: url('../images/homebackground.jpg') no-repeat center center fixed;
+  background: url('../images/addverse.jpg') no-repeat center center fixed;
   background-size: cover;
 }
 
@@ -14,7 +14,7 @@ html {
 }
 
 /* Landing page input field */
-input[type=text]:not(.browser-default) {
+input[type='text']:not(.browser-default) {
   background-color: #f5f5f5;
   width: 200px;
   border-radius: 10px;

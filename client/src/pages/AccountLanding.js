@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-import InternalHeader from '../components/InternalHeader/InternalHeader';
+import LandingHeader from '../components/LandingHeader/LandingHeader';
 import ticketMasterApi from '../utils/ticketMasterApi';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Hero from '../components/Hero/Hero';
-import Maps from '../components/Maps/Maps';
 import NavTabs from '../components/NavTabs/NavTabs';
 import SpacingColumn from '../components/MaterialColumn/SpacingColumn';
 import EventAccordions from '../components/Accordian/Accordian';
@@ -55,7 +54,7 @@ function Landing() {
 
   return (
     <>
-      <InternalHeader />
+      <LandingHeader />
       <div className="container">
         <div className="row" id="event-input">
           <SpacingColumn />
