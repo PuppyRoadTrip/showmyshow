@@ -36,7 +36,7 @@ const ChatRoomHome = () => {
                 className='text-input-field'
             />
 
-            <Link to={`/${room}`} className='enter-room-button'>
+            <Link to={`/${room}/${username}`} className='enter-room-button'>
                 Join Room
             </Link>
         </div>
