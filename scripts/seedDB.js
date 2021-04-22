@@ -1,12 +1,10 @@
 const mongoose = require('mongoose');
 const User = require('../models/User');
-const Show = require('../models/Show')
+// const Show = require('../models/Show')
 
 require('dotenv').config();
 
-const MONGODB_URI = process.env.MONGODB_KEY;
-
-mongoose.connect(MONGODB_URI || 'mongodb://localhost/showmyshow', {
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/showmyshow', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
@@ -15,23 +13,18 @@ const userSeed = [
   {
     username: 'puppyroadtrip',
     password: 'tadaam',
-    savedShows: 'PRT @ Moda Center',
-    favoriteBands: 'Outkast',
-    location: 'Portland',
-    showDate: '04/29/21',
+    savedShows: [{
+      title: 'show',
+      ticketUrl: 'link',
+      venue: 'place',
+      date: 'now',
+      info: 'stuff',
+      pleaseNote: 'important',
+      image: 'pic'
+    }],
   },
 ];
 
-const showSeed = [
-  {
-    title:'',
-    ticketUrl:'',
-    venue:'',
-    date:'',
-    description:'',
-    image:''
-  },
-];
 
 User.deleteMany({})
   .remove({})
@@ -45,14 +38,14 @@ User.deleteMany({})
     process.exit(1);
   });
 
-Show.deleteMany({})
-  .remove({})
-  .then(() => Show.collection.insertMany(showSeed))
-  .then((data) => {
-    console.log(data.result.n + ' records inserted!');
-    process.exit(0);
-  })
-  .catch((err) => {
-    console.error(err);
-    process.exit(1);
-  });
+// Show.deleteMany({})
+//   .remove({})
+//   .then(() => Show.collection.insertMany(showSeed))
+//   .then((data) => {
+//     console.log(data.result.n + ' records inserted!');
+//     process.exit(0);
+//   })
+//   .catch((err) => {
+//     console.error(err);
+//     process.exit(1);
+//   });

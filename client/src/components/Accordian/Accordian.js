@@ -24,6 +24,7 @@ function EventAccordion({ event, onClick }) {
         title: event.name,
         ticketUrl: event.url,
         venue: event._embedded.venues[0].name,
+        info: event.info,
         pleaseNote: event.pleaseNote,
         image: event.url
 

@@ -1,29 +1,29 @@
 require('dotenv/config');
 const Router = require('express').Router();
-const Show = require('../models/Show');
+const User = require('../models/User');
 
 Router.get('/saved', async (req, res) => {
   try {
-    console.log('we are getting to saved shows');
-    const savedShows = await Show.find();
-    res.json(savedShows);
+    console.log('we are getting to saved Users');
+    const savedUsers = await User.find();
+    res.json(savedUsers);
   } catch (err) {
     res.status(501);
-    console.log('error in the saved shows get route: ', err);
-    res.send('unexpected server error when getting shows!');
+    console.log('error in the saved Users get route: ', err);
+    res.send('unexpected server error when getting Users!');
   }
 });
 
 Router.post('/save', async (req, res) => {
   try {
-    console.log('we got a saved show with: ', req.body);
-    const savedShow = await Show.create(req.body);
+    console.log('we got a saved User with: ', req.body);
+    const savedUser = await User.create(req.body);
     res.status(201);
-    res.send(savedShow);
+    res.send(savedUser);
   } catch (err) {
     res.status(501);
     console.log('error in the save post route: ', err);
-    res.send('unexpected server error when posting a show!');
+    res.send('unexpected server error when posting a User!');
   }
 });
 

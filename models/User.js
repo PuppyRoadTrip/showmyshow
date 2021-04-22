@@ -10,10 +10,29 @@ const userSchema = new Schema({
     type: String,
     required: true,
   },
-  savedShows: String,
-  favoriteBands: String,
-  location: String,
-  showDate: String,
+  savedShows: [{
+    title: {
+      type: String,
+    },
+    ticketUrl: {
+      type: String,
+    },
+    venue: {
+      type: String,
+    },
+    date: {
+      type: String,
+    },
+    info: {
+      type: String,
+    },
+    pleaseNote: {
+      type: String,
+    },
+    image: {
+      type: String,
+    },
+  }]
 });
 
 const User = mongoose.model('User', userSchema);
