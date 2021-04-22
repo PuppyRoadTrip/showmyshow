@@ -1,12 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './ChatRoom.css';
 import useChat from '../../useChat';
 
 const ChatRoom = (props) => {
     const { roomId, username } = props.match.params;
     const { messages, sendMessage } = useChat(roomId);
-    const { user, setUser} =useChat(username);
-    const [newMessage, setNewMessage] = React.useState("");
+    const [newMessage, setNewMessage] = useState("");
   
     const handleNewMessageChange = (event) => {
       setNewMessage(event.target.value);
@@ -20,7 +19,7 @@ const ChatRoom = (props) => {
   
     return (
       <div className="chat-room-container">
-        <h1 className="room-name">Room: {roomId} Username: {user}</h1>
+        <h1 className="room-name">Room: {roomId} Username: {username}</h1>
         <div className="messages-container">
           <ol className="messages-list">
             {messages.map((message, i) => (
@@ -30,7 +29,7 @@ const ChatRoom = (props) => {
                   message.ownedByCurrentUser ? "my-message" : "received-message"
                 }`}
               >
-                {message.body}
+                {username}: {message.body}
               </li>
             ))}
           </ol>
