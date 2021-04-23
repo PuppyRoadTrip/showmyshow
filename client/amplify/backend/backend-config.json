@@ -1,0 +1,10 @@
+{
+  "auth": {
+    "showmyshowa39548cb": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false
+    }
+  }
+}

@@ -6,6 +6,11 @@ import HomeLanding from './pages/HomeLanding';
 import SavedShows from './pages/SavedShows';
 import ChatRoomHome from './pages/ChatRoomHome/Home';
 import ChatRoom from './pages/ChatRoom/ChatRoom';
+import Amplify from 'aws-amplify';
+import awsconfig from './aws-exports';
+import { AmplifySignOut, withAuthenticator} from '@aws-amplify/ui-react';
+
+Amplify.configure(awsconfig);
 
 function App() {
   return (
@@ -19,8 +24,9 @@ function App() {
           <Route exact path="/:roomId/:username" component={ChatRoom} />
         </Switch>
       </Router>
+      <AmplifySignOut />
     </>
   );
 }
 
-export default App;
+export default withAuthenticator(App);

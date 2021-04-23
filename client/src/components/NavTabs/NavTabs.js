@@ -20,7 +20,7 @@ function NavTabs() {
         variant="contained"
         className="home-buttons"
         id="login"
-        href="/landing"
+        href="/"
       >
         Landing
       </Button>
