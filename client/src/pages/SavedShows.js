@@ -7,7 +7,7 @@ import CenteringColumn from '../components/MaterialColumn/CenteringColumn';
 import NavTabs from '../components/NavTabs/NavTabs';
 import SaveShowHeader from '../components/SaveShowHeader/SaveShowHeader';
 import axios from "axios";
-import EventAccordian from "../components/Accordian/Accordian"
+import EventAccordians from "../components/Accordian/Accordian"
 
 function SavedShows() {
 
