@@ -3,7 +3,7 @@ import socketIOClient from "socket.io-client";
 
 // const io = require("socket.io-client");
 // declares server url for socket; mset to 3001
-const SOCKET_SERVER_URL = socketIOClient("http://localhost:3001", {
+const SOCKET_SERVER_URL = socketIOClient("http://localhost:3000", {
   withCredentials: true,
   extraHeaders: {
     "my-custom-header": "chat"
