@@ -20,21 +20,32 @@ function EventAccordion({ event, onClick }) {
   const saveShow = async (e) => {
     console.log(event.name, event._embedded.venues[0].name)
     await axios
-      .post('/api/save', {
+      .post('/api/user/608107c8abe28827050b92b7/show', {
         title: event.name,
         ticketUrl: event.url,
         venue: event._embedded.venues[0].name,
         info: event.info,
         pleaseNote: event.pleaseNote,
         image: event.url
-
-        // figure out which event they clicked on
-        // save the title, ticketURL, venue, description, date, image to DB
       })
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
-    window.location.replace('/saved');
   };
+
+  // const saveShow = async () => {
+  //   await axios.post('/api/user/608107c8abe28827050b92b7/show', {
+  //     title: "puppyshow",
+  //     ticketUrl: "https://www.puppies.com",
+  //     venue: "the puppy place",
+  //     date: "4/22/21",
+  //     info: "bring frisbies",
+  //     pleaseNote: "water will not be provided",
+  //     image: "a puppy"
+  //   })
+  //   .then(function (response) {
+  //     console.log(response);
+  //   }).catch((err) => console.log(err))
+  // }
 
   return (
     <div>
