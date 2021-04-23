@@ -14,16 +14,16 @@ Router.get('/user/:id/shows', async (req, res) => {
   }
 });
 
-Router.post('/save', async (req, res) => {
+Router.post('/user/:id/show', async (req, res) => {
   try {
-    console.log('we got a saved User with: ', req.body);
-    const savedUser = await User.create(req.body);
+    console.log('we got a saved show with: ', req.body);
+    const savedShow = await Show.create(req.body);
     res.status(201);
-    res.send(savedUser);
+    res.send(savedShow);
   } catch (err) {
     res.status(501);
-    console.log('error in the save post route: ', err);
-    res.send('unexpected server error when posting a User!');
+    console.log('error in the save show post route: ', err);
+    res.send('unexpected server error when posting a show!');
   }
 });
 

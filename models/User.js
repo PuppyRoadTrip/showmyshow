@@ -10,31 +10,10 @@ const userSchema = new Schema({
     type: String,
     required: true,
   },
-  savedShows: [{
-    title: {
-      type: String,
-    },
-    ticketUrl: {
-      type: String,
-    },
-    venue: {
-      type: String,
-    },
-    date: {
-      type: String,
-    },
-    info: {
-      type: String,
-    },
-    pleaseNote: {
-      type: String,
-    },
-    image: {
-      type: String,
-    },
-  }]
+  savedShows: {
+    type: Schema.Types.ObjectId,
+    ref: "Show"
+  }
 });
-
 const User = mongoose.model('User', userSchema);
-
 module.exports = User;
