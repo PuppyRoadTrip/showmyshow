@@ -57,7 +57,7 @@ const ChatRoom = (props) => {
         </>
       ) : (
         <>
-          <label for="username">Username</label>
+          {/* <label for="username">Username</label> */}
           <input
             type='text'
             placeholder='Username'
@@ -65,7 +65,7 @@ const ChatRoom = (props) => {
             onChange={onUpdateUsernameInput}
             className='text-input-field'
           />
-          <button onClick={updateUsername}>SUBMIT</button>
+          <button type='submit' onClick={updateUsername}>SUBMIT</button>
         </>
       )}
     </div>
