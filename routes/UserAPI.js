@@ -15,7 +15,7 @@ Router.get('/:username', async (req, res) => {
   }
 });
 
-Router.get('/:id/shows', async (req, res) => {
+Router.get('/:username/shows', async (req, res) => {
   try {
     console.log('we are getting to shows get route');
     const savedUser = await User.findById(req.params.id);
@@ -44,12 +44,12 @@ Router.post('/:id/show', function (req, res) {
     });
 });
 
-Router.post('/', async (req, res) => {
+Router.post('/:username', async (req, res) => {
   try {
     console.log('we got a user with: ', req.body);
-    const user = await User.create(req.body);
+    const user = await User.create({username: req.params.username});
+    console.log("our post request for user is: ", user);
     res.status(201);
-    res.send(user._id);
   } catch (err) {
     res.status(501);
     console.log('error in the users post route: ', err);

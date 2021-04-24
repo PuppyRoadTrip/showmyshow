@@ -9,7 +9,6 @@ import SaveShowHeader from '../components/SaveShowHeader/SaveShowHeader';
 import axios from "axios";
 
 function SavedShows() {
-
   const [showState, setShowState] = useState([])
 
   useEffect( async () => {
