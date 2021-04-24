@@ -15,7 +15,7 @@ function SavedShows() {
   useEffect( async () => {
       await axios
         .get('/api/user/6083a140ebe6082055ddfdc7/shows')
-        .then((res) =>  console.log("our shows are:", res.data))
+        .then((res) =>  console.log(res.data))
         .catch((err) => console.log(err));
   }, []);
 
@@ -33,7 +33,7 @@ function SavedShows() {
 
         <div className="row">
           <SpacingColumn />
-          <CenteringColumn component={<SavedShowCard />} />
+          <CenteringColumn component={showState.map((show) => <SavedShowCard title={show.title} image={show.image} date={show.date} info={show.info} pleaseNote={show.pleaseNote} venue={show.venue} ticketURl={show.ticketUrl} />)} />
           <SpacingColumn />
         </div>
         <NavTabs />
