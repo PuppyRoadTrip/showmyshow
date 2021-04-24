@@ -2,7 +2,6 @@ import React from 'react';
 import './TwitterCard.css';
 
 export default function TwitterCards({ tweets }) {
-  console.log('This is the TwitterCards console', tweets);
   return tweets.map((tweet, i) => <TwitterCard key={i} tweet={tweet} />);
 }
 
