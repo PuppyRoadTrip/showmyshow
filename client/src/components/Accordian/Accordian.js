@@ -20,7 +20,7 @@ function EventAccordion({ event, onClick }) {
   const saveShow = async (e) => {
     console.log(event.name, event._embedded.venues[0].name)
     await axios
-      .post('/api/user/608107c8abe28827050b92b7/show', {
+      .post('/api/user/6083a140ebe6082055ddfdc7/show', {
         title: event.name,
         ticketUrl: event.url,
         venue: event._embedded.venues[0].name,

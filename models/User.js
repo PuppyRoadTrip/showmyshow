@@ -6,12 +6,8 @@ const userSchema = new Schema({
     type: String,
     required: true,
   },
-  password: {
-    type: String,
-    required: true,
-  },
   savedShows: {
-    type: Schema.Types.ObjectId,
+    type: Array,
     ref: "Show"
   }
 });
