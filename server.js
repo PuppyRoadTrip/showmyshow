@@ -4,10 +4,9 @@ const path = require('path');
 const mongoose = require('mongoose');
 const PORT = process.env.PORT || 3001;
 const app = express();
-const UsersAPIRoutes = require('./routes/UsersAPI');
+const UserAPIRoutes = require('./routes/UserAPI');
 const ShowsAPIRoutes = require('./routes/ShowsAPI');
 const TwitterAPIRoutes = require('./routes/twitterApi');
-const SavedShowsAPIRoutes = require('./routes/SavedShowsAPI');
 
 //socket dependencies
 const http = require('http').Server(app);
@@ -34,10 +33,9 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 // Define API routes here
-app.use('/api/users', UsersAPIRoutes)
+app.use('/api/user', UserAPIRoutes)
 app.use('/api/shows', ShowsAPIRoutes)
 app.use('/api/twitter', TwitterAPIRoutes)
-app.use('/api', SavedShowsAPIRoutes)
 
 // Send every other request to the React app
 // Define any API routes before this runs
