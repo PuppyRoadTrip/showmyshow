@@ -1,53 +1,56 @@
-import { useEffect, useRef, useState } from "react";
-import socketIOClient from "socket.io-client";
+//!!!PLEASE DO NOT DELETE!!!
+//Might want to abstract bits of this functionality out; 
 
-// const io = require("socket.io-client");
-// declares server url for socket; mset to 3001
-const SOCKET_SERVER_URL = socketIOClient("http://localhost:3000", {
-  withCredentials: true,
-  extraHeaders: {
-    "my-custom-header": "chat"
-  }
-});
+// import { useEffect, useRef, useState } from "react";
+// import socketIOClient from "socket.io-client";
 
-// Name of event
-const NEW_CHAT_MESSAGE_EVENT = "newChatMessage"; 
+// // const io = require("socket.io-client");
+// // declares server url for socket; mset to 3001
+// const SOCKET_SERVER_URL = socketIOClient("http://localhost:3000", {
+//   withCredentials: true,
+//   extraHeaders: {
+//     "my-custom-header": "chat"
+//   }
+// });
 
-const useChat = (roomId) => {
-    //sent and recieved messages
-    const [messages, setMessages] = useState([]);
-    const socketRef= useRef();
+// // Name of event
+// const NEW_CHAT_MESSAGE_EVENT = "newChatMessage"; 
 
-    useEffect(() => {
+// const useChat = (roomId) => {
+//     //sent and recieved messages
+//     const [messages, setMessages] = useState([]);
+//     const socketRef= useRef();
 
-        //create websocket connection
-        socketRef.current = socketIOClient(SOCKET_SERVER_URL, {
-            query: { roomId },
-        });
+//     useEffect(() => {
 
-        //listen for incoming messages
-        socketRef.current.on(NEW_CHAT_MESSAGE_EVENT, (message) => {
-            const incomingMessage = {
-                ...message,
-                ownedByCurrentUser: message.senderId === socketRef.current.id,
-            };
-            setMessages((messages) => [...messages, incomingMessage]);
-        });
+//         //create websocket connection
+//         socketRef.current = socketIOClient(SOCKET_SERVER_URL, {
+//             query: { roomId },
+//         });
 
-        //destroy socketRef when connection is closed
-        return () => {
-            socketRef.current.disconnect();
-        };
-    }, [roomId]);
+//         //listen for incoming messages
+//         socketRef.current.on(NEW_CHAT_MESSAGE_EVENT, (message) => {
+//             const incomingMessage = {
+//                 ...message,
+//                 ownedByCurrentUser: message.senderId === socketRef.current.id,
+//             };
+//             setMessages((messages) => [...messages, incomingMessage]);
+//         });
 
-    const sendMessage = (messageBody) => {
-        socketRef.current.emit(NEW_CHAT_MESSAGE_EVENT, {
-            body: messageBody,
-            senderId: socketRef.current.id,
-        });
-    };
+//         //destroy socketRef when connection is closed
+//         return () => {
+//             socketRef.current.disconnect();
+//         };
+//     }, [roomId]);
 
-    return { messages, sendMessage };
-};
+//     const sendMessage = (messageBody) => {
+//         socketRef.current.emit(NEW_CHAT_MESSAGE_EVENT, {
+//             body: messageBody,
+//             senderId: socketRef.current.id,
+//         });
+//     };
 
-export default useChat;
+//     return { messages, sendMessage };
+// };
+
+// export default useChat;
