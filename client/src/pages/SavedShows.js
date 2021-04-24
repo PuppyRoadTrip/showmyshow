@@ -15,7 +15,10 @@ function SavedShows() {
   useEffect( async () => {
       await axios
         .get('/api/user/6083a140ebe6082055ddfdc7/shows')
-        .then((res) =>  setShowState(res.data))
+        .then((res) =>  {
+          console.log(res)
+          setShowState(res.data)
+        })
         .catch((err) => console.log(err));
   }, []);
 

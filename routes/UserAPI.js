@@ -2,7 +2,20 @@ require('dotenv/config');
 const Router = require('express').Router();
 const User = require('../models/User');
 
-Router.get('/user/:id/shows', async (req, res) => {
+Router.get('/:username', async (req, res) => {
+  try {
+    console.log('we are getting to all users');
+    const users = await User.find({
+    username: req.params.username});
+    res.json(user);
+  } catch (err) {
+    res.status(501);
+    console.log('error in the users get route: ', err);
+    res.send('unexpected server error when getting users!');
+  }
+});
+
+Router.get('/:id/shows', async (req, res) => {
   try {
     console.log('we are getting to shows get route');
     const savedUser = await User.findById(req.params.id);
@@ -14,7 +27,7 @@ Router.get('/user/:id/shows', async (req, res) => {
   }
 });
 
-Router.post('/user/:id/show', function (req, res) {
+Router.post('/:id/show', function (req, res) {
   console.log('our request is: ', req.body);
   const savedShow = req.body;
   User.findOneAndUpdate(
@@ -29,6 +42,19 @@ Router.post('/user/:id/show', function (req, res) {
     .catch(function (err) {
       res.json(err);
     });
+});
+
+Router.post('/', async (req, res) => {
+  try {
+    console.log('we got a user with: ', req.body);
+    const user = await User.create(req.body);
+    res.status(201);
+    res.send(user._id);
+  } catch (err) {
+    res.status(501);
+    console.log('error in the users post route: ', err);
+    res.send('unexpected server error when posting a user!');
+  }
 });
 
 module.exports = Router;
