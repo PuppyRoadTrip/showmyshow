@@ -1,22 +1,35 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './ChatRoom.css';
-import useChat from '../../useChat';
+import socketIOClient from "socket.io-client";
+
+
+const socket= socketIOClient("http://localhost:3000", {
+  withCredentials: true,
+  extraHeaders: {
+    "my-custom-header": "chat"
+  }
+});
 
 const ChatRoom = (props) => {
-  const { roomId} = props.match.params;
-  const { messages, sendMessage } = useChat(roomId);
-  const [newMessage, setNewMessage] = useState("");
+  const { roomId } = props.match.params;
+  const [ messages, setMessages ] = useState("");
+  const [newMessage, setNewMessage] = useState([]);
   const [username, setUsername] = useState(null);
   const [usernameInput, setUsernameInput] = useState("");
 
-  const handleNewMessageChange = (event) => {
-    setNewMessage(event.target.value);
+  useEffect(() => {
+    socket.on("messages", messages => {
+      setNewMessage(prevMessages => [...prevMessages, messages]);
+    });
+  }, []);
+
+  const handleMessage = () => {
+    socket.emit("messages", `${username}: ${messages}`);
+    setMessages("");
   };
 
-  const handleSendMessage = () => {
-    sendMessage(newMessage);
-    console.log(newMessage)
-    setNewMessage("");
+  const handleNewMessageChange = (event) => {
+    setMessages(event.target.value);
   };
 
   const onUpdateUsernameInput = event => {
@@ -34,30 +47,29 @@ const ChatRoom = (props) => {
           <h1 className="room-name">Room: {roomId} Username: {username}</h1>
           <div className="messages-container">
             <ol className="messages-list">
-              {messages.map((message, i) => (
+              {newMessage.map((message, i) => (
                 <li
                   key={i}
                   className={`message-item ${message.ownedByCurrentUser ? "my-message" : "received-message"
                     }`}
                 >
-                  {username}: {message.body}
+                  {message}
                 </li>
               ))}
             </ol>
             <textarea
-              value={newMessage}
+              value={messages}
               onChange={handleNewMessageChange}
               placeholder="Write message..."
               className="new-message-input-field"
             />
-            <button onClick={handleSendMessage} className="send-message-button">
+            <button onClick={handleMessage} className="send-message-button">
               Send
         </button>
           </div>
         </>
       ) : (
         <>
-          {/* <label for="username">Username</label> */}
           <input
             type='text'
             placeholder='Username'
