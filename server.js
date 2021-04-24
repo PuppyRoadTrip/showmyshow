@@ -18,7 +18,7 @@ const io = require('socket.io')(http, {
     credentials: true
   },
 });
-const NEW_CHAT_MESSAGE_EVENT = 'newChatMessage';
+// const NEW_CHAT_MESSAGE_EVENT = 'newChatMessage';
 
 
 
@@ -57,8 +57,8 @@ io.on('connection', (socket) => {
   socket.join(roomId);
 
   //new message listener
-  socket.on(NEW_CHAT_MESSAGE_EVENT, (data) => {
-    io.in(roomId).emit(NEW_CHAT_MESSAGE_EVENT, data);
+  socket.on("messages", (data) => {
+    io.in(roomId).emit("messages", data);
   });
 
   //Leave room if user closes socket
