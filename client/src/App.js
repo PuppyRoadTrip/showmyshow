@@ -24,7 +24,6 @@ function App() {
           <Route exact path="/:roomId/:username" component={ChatRoom} />
         </Switch>
       </Router>
-
       <div className="row" id="sign-out-row">
         <h5>
           <AmplifySignOut />
@@ -32,5 +31,6 @@ function App() {
       </div>
     </>
   );
+
 }
 export default withAuthenticator(App);

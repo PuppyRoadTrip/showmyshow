@@ -5,12 +5,6 @@ import './Home.css';
 
 const ChatRoomHome = () => {
   const [room, setRoom] = useState('');
-  // const [username, setUsername] = useState('');
-
-  // const handleUsername = (e) => {
-  //     setUsername(e.target.value);
-  //     console.log(username);
-  // };
 
   const handleRoomChange = (e) => {
     setRoom(e.target.value);
@@ -27,13 +21,6 @@ const ChatRoomHome = () => {
             <div className="card" id="gr-card-body">
               <div className="card-content white-text">
                 <span className="card-title">Go ahead, get a room:</span>
-                {/* <input
-                  type="text"
-                  placeholder=" Enter a username"
-                  value={username}
-                  onChange={handleUsername}
-                  className="text-input-field"
-                /> */}
                 <input
                   type="text"
                   placeholder=" Name your room"
@@ -57,3 +44,4 @@ const ChatRoomHome = () => {
 };
 
 export default ChatRoomHome;
+

@@ -15,6 +15,7 @@ import twitterApi from '../utils/twitterApi';
 import TwitterCards from '../components/TwitterCard/TwitterCard';
 import UserAuth from '../utils/userAuth';
 
+
 function Landing() {
   const useStyles = makeStyles((theme) => ({
     root: {
@@ -27,12 +28,20 @@ function Landing() {
   }));
 
   const classes = useStyles();
-
+  const [user] = UserAuth();
   const [tweetState, setTweetState] = useState([]);
 
   useEffect(() => {
+    console.log("our user from userAuth is: ", user);
+    if (user) {
+      axios.post(`/api/user/${user}`, {
+        username: user
+      })
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
+    }
     twitterApi.getTweets().then((tweetList) => setTweetState(tweetList));
-  }, []);
+  }, [user]);
 
   const [showState, setShowState] = useState({ city: '', state: '' });
   const [eventsState, setEventsState] = useState([]);
