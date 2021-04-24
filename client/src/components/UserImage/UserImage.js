@@ -2,6 +2,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Avatar from '@material-ui/core/Avatar';
 import image from '../../images/bbs.jpg';
+import UserAuth from '../../utils/userAuth'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -18,6 +19,8 @@ export default function ImageAvatars() {
   return (
     <div className={classes.root}>
       <Avatar alt="image holder" src={image} className={classes.large} />
+      <UserAuth />
     </div>
+
   );
 }
