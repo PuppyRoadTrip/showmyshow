@@ -13,7 +13,7 @@ function UserAuth() {
   useEffect(() => {
     Auth.currentAuthenticatedUser().then((user) => {
       if (user.attributes.email === userState) return;
-      setUserState(user.attributes.email);
+      setUserState(`Signed in as: ${user.attributes.email}`);
       console.log('Current user is: ', user.attributes.email);
     });
   });

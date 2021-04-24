@@ -1,7 +1,9 @@
-.home-buttons {
-  background-color: #56dff5 !important;
+#home-links {
+  padding: 10px;
+  background-color: #404040;
+  border-radius: 5px;
+  color: #56dff5 !important;
 }
-
-#login {
-  float: right;
+.home-buttons {
+  color: #56dff5 !important;
 }

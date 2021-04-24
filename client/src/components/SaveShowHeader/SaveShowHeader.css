@@ -1,8 +1,19 @@
-#saved-header {
-    height: 50px;
-    width: 100% !important;
-    background-color: #6129d9 !important;
-    opacity: 0.95;
-    text-align: center;
-    vertical-align: middle;
+#save-header {
+  width: 100% !important;
+  opacity: 0.95;
+  text-align: center;
+  vertical-align: middle;
+  align-items: center;
+  color: #f5f5f5;
   }
+
+  #save-text {
+    font-size: 12vw;
+    background-color: #404040;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#save-span {
+  color: #0da67b;
+}

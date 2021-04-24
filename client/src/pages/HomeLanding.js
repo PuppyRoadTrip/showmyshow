@@ -13,7 +13,8 @@ import axios from 'axios';
 import CenteringColumn from '../components/MaterialColumn/CenteringColumn';
 import twitterApi from '../utils/twitterApi';
 import TwitterCards from '../components/TwitterCard/TwitterCard';
-import UserAuth from "../utils/userAuth";
+import UserAuth from '../utils/userAuth';
+
 
 function Landing() {
   const useStyles = makeStyles((theme) => ({
@@ -71,7 +72,20 @@ function Landing() {
   return (
     <>
       <HomeHeader />
+
+      <div className="row" id="nav-row">
+          <span id="nav-disp-span">
+            <NavTabs />
+          </span>
+        </div>
+
       <div className="container">
+        <div className="row" id="auth-row">
+          <span id="auth-disp-span">
+            <UserAuth />
+          </span>
+        </div>
+
         <div className="row" id="event-input">
           <SpacingColumn />
           <CenteringColumn
@@ -134,12 +148,6 @@ function Landing() {
         <div className="row" id="twitter-card-row">
           <SpacingColumn />
           <CenteringColumn component={<TwitterCards tweets={tweetState} />} />
-          <SpacingColumn />
-        </div>
-
-        <div className="row" id="nav-tabs">
-          <SpacingColumn />
-          <CenteringColumn component={<NavTabs />} />
           <SpacingColumn />
         </div>
       </div>
