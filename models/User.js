@@ -6,16 +6,10 @@ const userSchema = new Schema({
     type: String,
     required: true,
   },
-  password: {
-    type: String,
-    required: true,
+  savedShows: {
+    type: Array,
+    ref: 'Show',
   },
-  savedShows: String,
-  favoriteBands: String,
-  location: String,
-  showDate: String,
 });
-
 const User = mongoose.model('User', userSchema);
-
 module.exports = User;
