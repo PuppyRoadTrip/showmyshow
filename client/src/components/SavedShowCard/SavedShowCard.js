@@ -17,8 +17,8 @@ function SavedShowCard({title, image, date, info, pleaseNote, venue, ticketUrl})
         <span className="card-title activator grey-text text-darken-4">
           {title}<i className="material-icons right">more_vert</i>
         </span>
-        <p>{date}</p>
-        <p>{venue}</p>
+        <p>Date: {date}</p>
+        <p>Venue: {venue}</p>
         <p>
           <a
             href={ticketUrl}
@@ -36,6 +36,9 @@ function SavedShowCard({title, image, date, info, pleaseNote, venue, ticketUrl})
         <p>
           {info}
         </p>
+        <span className="card-title grey-text text-darken-4">
+          Please Note<i className="material-icons right">close</i>
+        </span>
         <p>{pleaseNote}</p>
       </div>
     </div>

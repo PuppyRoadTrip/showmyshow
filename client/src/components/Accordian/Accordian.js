@@ -26,7 +26,7 @@ function EventAccordion({ event, onClick }) {
         venue: event._embedded.venues[0].name,
         info: event.info,
         pleaseNote: event.pleaseNote,
-        image: event.url,
+        image: event.images[1].url,
       })
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
