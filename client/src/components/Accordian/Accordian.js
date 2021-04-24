@@ -18,21 +18,18 @@ function EventAccordion({ event, onClick }) {
   console.log('event is: ', event.id);
 
   const saveShow = async (e) => {
-    console.log(event.name, event._embedded.venues[0].name)
+    console.log(event.name, event._embedded.venues[0].name);
     await axios
-      .post('/api/save', {
+      .post('/api/user/6083a140ebe6082055ddfdc7/show', {
         title: event.name,
         ticketUrl: event.url,
         venue: event._embedded.venues[0].name,
+        info: event.info,
         pleaseNote: event.pleaseNote,
-        image: event.url
-
-        // figure out which event they clicked on
-        // save the title, ticketURL, venue, description, date, image to DB
+        image: event.url,
       })
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
-    window.location.replace('/saved');
   };
 
   return (
@@ -49,8 +46,8 @@ function EventAccordion({ event, onClick }) {
           <div>
             <img id="event-image" src={event.images[1].url} />
             <p>
-              <span className="field-span">Date: </span> 
-            {event.dates.start.localDate}
+              <span className="field-span">Date: </span>
+              {event.dates.start.localDate}
             </p>
             <p>
               <span className="field-span">Event Info: </span>
@@ -65,8 +62,10 @@ function EventAccordion({ event, onClick }) {
               {event._embedded.venues[0].name}
             </p>
             <a href={event.url}>Get Tickets</a>
-            <br/>
-              <Button id='save-show-btn' onClick={saveShow}>Save Show</Button>
+            <br />
+            <Button id="save-show-btn" onClick={saveShow}>
+              Save Show
+            </Button>
           </div>
         </AccordionDetails>
       </Accordion>
