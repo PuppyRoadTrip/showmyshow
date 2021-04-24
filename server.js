@@ -13,7 +13,7 @@ const SavedShowsAPIRoutes = require('./routes/SavedShowsAPI');
 const http = require('http').Server(app);
 const io = require('socket.io')(http, {
   cors: {
-    origin: 'http://localhost:3000',
+    origin: 'http://localhost:3001',
     methods: ['GET', 'POST'],
     allowedHeaders: ['chat'],
     credentials: true

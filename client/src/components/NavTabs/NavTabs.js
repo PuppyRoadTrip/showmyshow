@@ -20,7 +20,7 @@ function NavTabs() {
         variant="contained"
         className="home-buttons"
         id="login"
-        href="/"
+        href="/landing"
       >
         Landing
       </Button>
@@ -31,14 +31,6 @@ function NavTabs() {
         href="/saved"
       >
         Saved
-      </Button>
-      <Button
-        variant="contained"
-        className="home-buttons"
-        id="login"
-        href="/chat"
-      >
-        GreenRoom
       </Button>
     </div>
   );
