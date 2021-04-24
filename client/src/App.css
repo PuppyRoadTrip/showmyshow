@@ -26,3 +26,16 @@
     transform: rotate(360deg);
   }
 }
+
+:root {
+  --amplify-primary-color: #0da67b;
+  --amplify-primary-tint: #12DEA4;
+  --amplify-primary-shade: #10C491;
+  --color: black !important;
+}
+
+#sign-out-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
