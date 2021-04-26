@@ -22,6 +22,7 @@ function App() {
           <Route exact path="/saved" component={SavedShows} />
           <Route exact path="/chat" component={ChatRoomHome} />
           <Route exact path="/:roomId" component={ChatRoom} />
+          <Route component={NotFound} />
         </Switch>
       </Router>
       <div className="row" id="sign-out-row">
