@@ -30,7 +30,7 @@ const ChatRoomHome = () => {
                 />
               </div>
               <div className="card-action" id="gr-card-bottom">
-                <Link to={`/${room}`} className="enter-room-button">
+                <Link to={`/chat/${room}`} className="enter-room-button">
                   Join Room
                 </Link>
               </div>
