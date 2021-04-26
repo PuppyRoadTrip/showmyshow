@@ -14,8 +14,7 @@ export default function EventAccordions({ events, onClick }) {
   ));
 }
 
-function EventAccordion({ event, onClick }) {
-  console.log('event is: ', event.id);
+function EventAccordion({ event } ) {
 
   const saveShow = async (e) => {
     console.log(event.name, event._embedded.venues[0].name);
@@ -33,7 +32,7 @@ function EventAccordion({ event, onClick }) {
   };
 
   return (
-    <div>
+    <>
       <Accordion id="accordion-tiles">
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
@@ -44,7 +43,7 @@ function EventAccordion({ event, onClick }) {
         </AccordionSummary>
         <AccordionDetails>
           <div>
-            <img id="event-image" src={event.images[1].url} />
+            <img id="event-image" alt="show poster" src={event.images[1].url} />
             <p>
               <span className="field-span">Date: </span>
               {event.dates.start.localDate}
@@ -69,6 +68,6 @@ function EventAccordion({ event, onClick }) {
           </div>
         </AccordionDetails>
       </Accordion>
-    </div>
+    </>
   );
 }
