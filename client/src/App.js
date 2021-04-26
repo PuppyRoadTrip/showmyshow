@@ -6,6 +6,7 @@ import HomeLanding from './pages/HomeLanding';
 import SavedShows from './pages/SavedShows';
 import ChatRoomHome from './pages/ChatRoomHome/Home';
 import ChatRoom from './pages/ChatRoom/ChatRoom';
+import NotFound from './pages/404NotFound';
 import Amplify from 'aws-amplify';
 import awsconfig from './aws-exports';
 import { AmplifySignOut, withAuthenticator } from '@aws-amplify/ui-react';
@@ -21,7 +22,8 @@ function App() {
           <Route exact path="/login" component={Login} />
           <Route exact path="/saved" component={SavedShows} />
           <Route exact path="/chat" component={ChatRoomHome} />
-          <Route exact path="/:roomId/:username" component={ChatRoom} />
+          <Route path="/chat/:roomId" render={(props) => <ChatRoom {...props} />}  />
+          <Route component={NotFound} />
         </Switch>
       </Router>
       <div className="row" id="sign-out-row">
