@@ -8,7 +8,6 @@ const ChatRoomHome = () => {
 
   const handleRoomChange = (e) => {
     setRoom(e.target.value);
-    console.log(room);
   };
 
   return (

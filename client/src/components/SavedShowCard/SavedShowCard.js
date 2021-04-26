@@ -10,6 +10,7 @@ function SavedShowCard({title, image, date, info, pleaseNote, venue, ticketUrl})
           className="activator"
           id="hero-img"
           title="artist image"
+          alt="show poster"
           src={`${image}`}
         />
       </div>

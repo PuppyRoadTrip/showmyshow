@@ -49,7 +49,7 @@ function Landing() {
   const handleTicketMasterAPISearch = async (event) => {
     event.preventDefault();
     console.log(showState);
-    const showList = await ticketMasterApi
+    await ticketMasterApi
       .getCityShows(showState.city, showState.state)
       .then((res) => {
         const { events } = res.data._embedded;
@@ -82,6 +82,8 @@ function Landing() {
       <div className="container">
         <div className="row" id="auth-row">
           <span id="auth-disp-span">
+            Signed in as: 
+            <br/>
             <UserAuth />
           </span>
         </div>

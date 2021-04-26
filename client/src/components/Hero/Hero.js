@@ -10,6 +10,7 @@ function Hero() {
           className="activator"
           id="hero-img"
           title="The Bridge City Sinners"
+          alt="band"
           src={image1}
         />
       </div>

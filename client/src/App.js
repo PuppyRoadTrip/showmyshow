@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Login from '../src/pages/Login';
+// import Login from '../src/pages/Login';
 import HomeLanding from './pages/HomeLanding';
 import SavedShows from './pages/SavedShows';
 import ChatRoomHome from './pages/ChatRoomHome/Home';
@@ -19,7 +19,7 @@ function App() {
       <Router>
         <Switch>
           <Route exact path="/" component={HomeLanding} />
-          <Route exact path="/login" component={Login} />
+          {/* <Route exact path="/login" component={Login} /> */}
           <Route exact path="/saved" component={SavedShows} />
           <Route exact path="/chat" component={ChatRoomHome} />
           <Route path="/chat/:roomId" render={(props) => <ChatRoom {...props} />}  />

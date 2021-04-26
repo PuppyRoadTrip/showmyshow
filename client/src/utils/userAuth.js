@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import Amplify from 'aws-amplify';
 import awsconfig from '../aws-exports';
 import { Auth } from 'aws-amplify';
@@ -13,8 +13,8 @@ function UserAuth() {
   useEffect(() => {
     Auth.currentAuthenticatedUser().then((user) => {
       if (user.attributes.email === userState) return;
-      setUserState(`Signed in as: ${user.attributes.email}`);
-      console.log('Current user is: ', user.attributes.email);
+      setUserState(`${user.attributes.email}`);
+      // console.log('Current user is: ', user.attributes.email);
     });
   });
   return [userState]
