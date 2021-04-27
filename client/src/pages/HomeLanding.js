@@ -15,7 +15,6 @@ import twitterApi from '../utils/twitterApi';
 import TwitterCards from '../components/TwitterCard/TwitterCard';
 import UserAuth from '../utils/userAuth';
 
-
 function Landing() {
   const useStyles = makeStyles((theme) => ({
     root: {
@@ -32,13 +31,14 @@ function Landing() {
   const [tweetState, setTweetState] = useState([]);
 
   useEffect(() => {
-    console.log("our user from userAuth is: ", user);
+    console.log('our user from userAuth is: ', user);
     if (user) {
-      axios.post(`/api/user/${user}`, {
-        username: user
-      })
-      .then((res) => console.log(res))
-      .catch((err) => console.log(err));
+      axios
+        .post(`/api/user/${user}`, {
+          username: user,
+        })
+        .then((res) => console.log(res))
+        .catch((err) => console.log(err));
     }
     twitterApi.getTweets().then((tweetList) => setTweetState(tweetList));
   }, [user]);
@@ -72,22 +72,8 @@ function Landing() {
   return (
     <>
       <HomeHeader />
-
-      <div className="row" id="nav-row">
-          <span id="nav-disp-span">
-            <NavTabs />
-          </span>
-        </div>
-
+      <NavTabs />
       <div className="container">
-        <div className="row" id="auth-row">
-          <span id="auth-disp-span">
-            Signed in as: 
-            <br/>
-            <UserAuth />
-          </span>
-        </div>
-
         <div className="row" id="event-input">
           <SpacingColumn />
           <CenteringColumn

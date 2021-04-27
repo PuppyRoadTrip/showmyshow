@@ -44,6 +44,7 @@ function SavedShows() {
   return (
     <>
       <SaveShowHeader />
+      <NavTabs />
       <br></br>
 
       <div className="container">
@@ -70,7 +71,6 @@ function SavedShows() {
           />
           <SpacingColumn />
         </div>
-        <NavTabs />
       </div>
     </>
   );
