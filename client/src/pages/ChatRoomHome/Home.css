@@ -1,23 +1,23 @@
 #gr-card-body {
-    background-color: #0da67b;
-    opacity: 0.97;
-    border-radius: 10px;
+  background-color: #0da67b;
+  opacity: 0.97;
+  border-radius: 10px;
 }
 
 #gr-card-bottom {
-    border-radius: 10px;
+  border-radius: 10px;
 }
 
 .enter-room-button {
-    color: #6129d9 !important;
+  color: #6129d9 !important;
 }
 
 #gr-card-row {
-    margin-top: 50px;
+  margin-top: 50px;
 }
 
 input[type='text']:not(.browser-default) {
-    width: 100%;
-    margin-top: 10px;
-    border: 1px solid #56dff5;
+  width: 100%;
+  margin-top: 10px;
+  border: 1px solid #56dff5;
 }

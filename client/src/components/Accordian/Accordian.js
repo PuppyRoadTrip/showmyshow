@@ -8,6 +8,7 @@ import Button from '@material-ui/core/Button';
 import './Accordian.css';
 import axios from 'axios';
 import UserAuth from "../../utils/userAuth"
+import SnackBar from '../SnackBar/SnackBar';
 
 export default function EventAccordions({ events, onClick }) {
   return events.map((event) => (
@@ -64,7 +65,7 @@ function EventAccordion({ event } ) {
             <a href={event.url}>Get Tickets</a>
             <br />
             <Button id="save-show-btn" onClick={saveShow}>
-              Save Show
+              <SnackBar label="Save Show" popupMessage="Show Saved!" />
             </Button>
           </div>
         </AccordionDetails>

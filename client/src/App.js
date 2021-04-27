@@ -22,7 +22,10 @@ function App() {
           {/* <Route exact path="/login" component={Login} /> */}
           <Route exact path="/saved" component={SavedShows} />
           <Route exact path="/chat" component={ChatRoomHome} />
-          <Route path="/chat/:roomId" render={(props) => <ChatRoom {...props} />}  />
+          <Route
+            path="/chat/:roomId"
+            render={(props) => <ChatRoom {...props} />}
+          />
           <Route component={NotFound} />
         </Switch>
       </Router>
@@ -33,6 +36,5 @@ function App() {
       </div>
     </>
   );
-
 }
 export default withAuthenticator(App);
