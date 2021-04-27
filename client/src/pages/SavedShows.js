@@ -9,11 +9,36 @@ import SaveShowHeader from '../components/SaveShowHeader/SaveShowHeader';
 import axios from 'axios';
 import UserAuth from '../utils/userAuth';
 
-function SavedShows() {
-  const [userId, setUserId] = useState([]);
-  const user = UserAuth();
-  const [showState, setShowState] = useState([]);
 
+// *****************************//
+//      CODE WITH HARD RENDER   //
+// *****************************//
+
+
+function SavedShows() {
+  
+  const [showState, setShowState] = useState([])
+
+
+  useEffect(() => {
+         axios
+        .get(`/api/user/sloanlacey89@gmail.com`)
+        .then((res) =>  setShowState(res.data))
+        .catch((err) => console.log(err));
+  }, []);
+
+// *****************************//
+//      CODE TO GET ALL USERS   //
+// *****************************//
+
+// function SavedShows() {
+//   const [userId, setUserId] = useState([]);
+//   const user = UserAuth();
+//   const [showState, setShowState] = useState([]);
+
+// *****************************//
+//      THIS ISN'T WORKING      //
+// *****************************//
   // const getUserInfo = () => {
   //   const authenticatedUser = UserAuth();
   //   axios.get(`/api/user/users`).then((res) => {
@@ -27,15 +52,22 @@ function SavedShows() {
   //   });
   // };
 
-  const getUserInfo = () => {
-    const authenticatedUser = UserAuth();
-    axios.get(`/api/user/${authenticatedUser}`).then((res) => {
-      console.log(res.data);
-      setShowState(res.data);
-    });
-  };
+// *****************************//
+//      USE THIS                //
+// *****************************//
+  // const getUserInfo = () => {
+  //   const authenticatedUser = UserAuth();
+  //   axios.get(`/api/user/${authenticatedUser}`).then((res) => {
+  //     console.log(res.data);
+  //     setShowState(res.data);
+  //   });
+  // };
 
-  getUserInfo();
+  // getUserInfo();
+
+// *****************************//
+//     THIS ISN'T WORKING       //
+// *****************************//
 
   // useEffect(() => {
   //   getUserInfo();
