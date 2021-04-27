@@ -12,7 +12,6 @@ import UserAuth from '../utils/userAuth';
 function SavedShows() {
   const [userId, setUserId] = useState([]);
   const user = UserAuth();
-  console.log('your username is:', user);
   const [showState, setShowState] = useState([]);
 
   // const getUserInfo = () => {
@@ -31,21 +30,16 @@ function SavedShows() {
   const getUserInfo = () => {
     const authenticatedUser = UserAuth();
     axios.get(`/api/user/${authenticatedUser}`).then((res) => {
-      console.log(res);
+      console.log(res.data);
+      setShowState(res.data);
     });
   };
 
   getUserInfo();
 
-  useEffect(() => {
-    axios
-      .get(`/api/user/${userId}/shows`)
-      .then((res) => {
-        console.log(res.data);
-        setShowState(res.data);
-      })
-      .catch((err) => console.log(err));
-  }, []);
+  // useEffect(() => {
+  //   getUserInfo();
+  // }, []);
 
   return (
     <>
