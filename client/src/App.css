@@ -29,8 +29,8 @@
 
 :root {
   --amplify-primary-color: #0da67b;
-  --amplify-primary-tint: #12DEA4;
-  --amplify-primary-shade: #10C491;
+  --amplify-primary-tint: #12dea4;
+  --amplify-primary-shade: #10c491;
   --color: black !important;
 }
 
@@ -38,7 +38,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  /* position: fixed; */
   bottom: 0px;
-  margin-top: 250px;
+  margin-top: 150px;
 }

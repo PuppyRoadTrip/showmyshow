@@ -49,12 +49,12 @@ const ChatRoom = (props) => {
       <div className="container">
         {username ? (
           <>
-            <div class="row">
+            <div className="row">
               <div className="col s0 m0 l3"></div>
-              <div class="col s12 m12 l6">
-                <div class="card" id="chat-card">
-                  <div class="card-content">
-                    <span class="card-title">{roomId}</span>
+              <div className="col s12 m12 l6">
+                <div className="card" id="chat-card">
+                  <div className="card-content">
+                    <span className="card-title">{roomId}</span>
                     <p>Username: {username}</p>
                   </div>
                 </div>

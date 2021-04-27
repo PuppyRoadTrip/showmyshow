@@ -16,25 +16,19 @@ export default function BasicTextFields() {
   const classes = useStyles();
 
   return (
-    <form
-      className={classes.root}
-      noValidate
-      autoComplete="off"
-      // onSubmit={handleTMAPISearch}
-    >
+    <form className={classes.root} noValidate autoComplete="off">
       <TextField
         id="outlined-basic"
         label="City, ST (Ex: Bend, OR)"
         variant="outlined"
-        // onChange={(event) =>
-        //   setShowState({
-        //     city: event.target.value.split(",")[0],
-        //     state: event.target.value.split(", ")[1],
-        //   })
-        // }
       />
       <br></br>
-      <Button id='home-search-btn' variant="contained" color="secondary" type="submit">
+      <Button
+        id="home-search-btn"
+        variant="contained"
+        color="secondary"
+        type="submit"
+      >
         Search
       </Button>
     </form>

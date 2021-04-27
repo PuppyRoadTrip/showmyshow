@@ -61,8 +61,6 @@ function Landing() {
     await axios
       .post('/api/save', {
         show: eventsState[e.target.id],
-        // figure out which event they clicked on
-        // save the title, ticketURL, venue, description, date, image to DB
       })
       .then((res) => console.log(res))
       .catch((err) => console.log(err));

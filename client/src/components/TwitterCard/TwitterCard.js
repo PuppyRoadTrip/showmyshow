@@ -6,16 +6,17 @@ export default function TwitterCards({ tweets }) {
 }
 
 function TwitterCard({ tweet }) {
-  // Add in a header (like "Artist Spotlight") for the tweet cards section
   return (
     <div className="row">
       <div className="col s12">
-        <div className="card" id='twitter-card-color'>
+        <div className="card" id="twitter-card-color">
           <div className="card-content">
-            <span className="card-title" id='twitter-card-title'>
+            <span className="card-title" id="twitter-card-title">
               @{tweet.screen_name}
             </span>
-            <span className="card-title" id='twitter-card-text'>{tweet.text}</span>
+            <span className="card-title" id="twitter-card-text">
+              {tweet.text}
+            </span>
           </div>
         </div>
       </div>

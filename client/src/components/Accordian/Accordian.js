@@ -7,6 +7,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Button from '@material-ui/core/Button';
 import './Accordian.css';
 import axios from 'axios';
+import SnackBar from '../SnackBar/SnackBar';
 
 export default function EventAccordions({ events, onClick }) {
   return events.map((event) => (
@@ -14,8 +15,7 @@ export default function EventAccordions({ events, onClick }) {
   ));
 }
 
-function EventAccordion({ event } ) {
-
+function EventAccordion({ event }) {
   const saveShow = async (e) => {
     console.log(event.name, event._embedded.venues[0].name);
     await axios
@@ -63,7 +63,7 @@ function EventAccordion({ event } ) {
             <a href={event.url}>Get Tickets</a>
             <br />
             <Button id="save-show-btn" onClick={saveShow}>
-              Save Show
+              <SnackBar label="Save Show" popupMessage="Show Saved!" />
             </Button>
           </div>
         </AccordionDetails>
