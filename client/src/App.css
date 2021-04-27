@@ -38,4 +38,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  /* position: fixed; */
+  bottom: 0px;
+  margin-top: 250px;
 }

@@ -24,6 +24,7 @@ function SavedShows() {
   return (
     <>
       <SaveShowHeader />
+      <NavTabs />
       <br></br>
 
       <div className="container">
@@ -38,7 +39,6 @@ function SavedShows() {
           <CenteringColumn component={showState.map((show) => <SavedShowCard title={show.title} image={show.image} date={show.date} info={show.info} pleaseNote={show.pleaseNote} venue={show.venue} ticketURl={show.ticketUrl} />)} />
           <SpacingColumn />
         </div>
-        <NavTabs />
       </div>
     </>
   );

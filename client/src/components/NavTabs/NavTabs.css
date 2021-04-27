@@ -7,3 +7,10 @@
 .home-buttons {
   color: #56dff5 !important;
 }
+
+#nav-card {
+  background-color: #0da67b;
+  border-radius: 10px;
+  text-align: center;
+  opacity: 0.95;
+}

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import GreenRoomHeader from '../../components/GreenRoomHeader/GreenRoomHeader';
+import NavTabs from '../../components/NavTabs/NavTabs';
 import './Home.css';
 
 const ChatRoomHome = () => {
@@ -13,6 +14,7 @@ const ChatRoomHome = () => {
   return (
     <>
       <GreenRoomHeader />
+      <NavTabs />
       <div className="container">
         <div className="row" id="gr-card-row">
           <div className="col s0 m0 l3"></div>
@@ -30,7 +32,7 @@ const ChatRoomHome = () => {
               </div>
               <div className="card-action" id="gr-card-bottom">
                 <Link to={`/chat/${room}`} className="enter-room-button">
-                  Join Room
+                  Next
                 </Link>
               </div>
             </div>
