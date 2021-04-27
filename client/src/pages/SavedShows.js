@@ -7,19 +7,22 @@ import CenteringColumn from '../components/MaterialColumn/CenteringColumn';
 import NavTabs from '../components/NavTabs/NavTabs';
 import SaveShowHeader from '../components/SaveShowHeader/SaveShowHeader';
 import axios from "axios";
+import UserAuth from "../utils/userAuth"
 
 function SavedShows() {
+  const user = UserAuth();
+  console.log("your username is:", user)
   const [showState, setShowState] = useState([])
 
-  useEffect( async () => {
-      await axios
-        .get('/api/user/6083a140ebe6082055ddfdc7/shows')
+  useEffect(() => {
+      axios
+        .get(`/api/user/${user}/shows`)
         .then((res) =>  {
           console.log(res)
           setShowState(res.data)
         })
         .catch((err) => console.log(err));
-  }, []);
+  }, [user]);
 
   return (
     <>

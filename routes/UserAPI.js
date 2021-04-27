@@ -6,20 +6,25 @@ Router.get('/:username', async (req, res) => {
   try {
     console.log('we are getting to all users');
     const users = await User.find({
-    username: req.params.username});
+      username: req.params.username,
+    });
     res.json(user);
   } catch (err) {
     res.status(501);
-    console.log('error in the users get route: ', err);
     res.send('unexpected server error when getting users!');
   }
 });
 
-Router.get('/:username/shows', async (req, res) => {
+
+Router.get('/:username/shows', (req, res) => {
   try {
-    console.log('we are getting to shows get route');
-    const savedUser = await User.findById(req.params.id);
-    res.json(savedUser.savedShows);
+    console.log("our request to the shows route is: ", req.body);
+    User.findOne({ username: req.params.username })
+    
+    .then(function () {
+        res.send(req.body.savedShows);
+      }
+    );
   } catch (err) {
     res.status(501);
     console.log('error in the shows get route: ', err);
@@ -27,11 +32,11 @@ Router.get('/:username/shows', async (req, res) => {
   }
 });
 
-Router.post('/:id/show', function (req, res) {
+Router.post('/:username/show', function (req, res) {
   console.log('our request is: ', req.body);
   const savedShow = req.body;
   User.findOneAndUpdate(
-    { _id: req.params.id },
+    { username: req.params.username },
     { $addToSet: { savedShows: savedShow } },
     { new: true }
   )
@@ -47,8 +52,8 @@ Router.post('/:id/show', function (req, res) {
 Router.post('/:username', async (req, res) => {
   try {
     console.log('we got a user with: ', req.body);
-    const user = await User.create({username: req.params.username});
-    console.log("our post request for user is: ", user);
+    const user = await User.create({ username: req.params.username });
+    console.log('our post request for user is: ', user);
     res.status(201);
   } catch (err) {
     res.status(501);
