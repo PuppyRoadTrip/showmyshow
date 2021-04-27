@@ -48,13 +48,24 @@ function Landing() {
 
   const handleTicketMasterAPISearch = async (event) => {
     event.preventDefault();
-    console.log(showState);
-    await ticketMasterApi
-      .getCityShows(showState.city, showState.state)
-      .then((res) => {
-        const { events } = res.data._embedded;
-        setEventsState(events);
-      });
+    const cityState = JSON.stringify(showState);
+    if (cityState.indexOf(',') === -1) {
+      alert(
+        'You must include a comma in between City and State. For example: Baton Rouge, LA. Please try search again!'
+      );
+    } else {
+      try {
+        await ticketMasterApi
+          .getCityShows(showState.city, showState.state)
+          .then((res) => {
+            const { events } = res.data._embedded;
+            setEventsState(events);
+          });
+      }
+      catch (err) {
+        alert('There are no shows scheduled in the city you searched for. Please search for another city!');
+      }
+    }
   };
 
   const saveShow = async (e) => {
