@@ -1,8 +1,5 @@
 import React, { useState, useEffect } from 'react';
-<<<<<<< HEAD
 // import InternalHeader from '../components/InternalHeader/InternalHeader';
-=======
->>>>>>> master
 import './Style.css';
 import SavedShowCard from '../components/SavedShowCard/SavedShowCard';
 import SpacingColumn from '../components/MaterialColumn/SpacingColumn';
@@ -10,50 +7,32 @@ import CenteringColumn from '../components/MaterialColumn/CenteringColumn';
 import NavTabs from '../components/NavTabs/NavTabs';
 import SaveShowHeader from '../components/SaveShowHeader/SaveShowHeader';
 import axios from 'axios';
-<<<<<<< HEAD
 import UserAuth from '../utils/userAuth';
-
-
 // *****************************//
 //      CODE WITH HARD RENDER   //
 // *****************************//
-
-
 function SavedShows() {
   
   const [showState, setShowState] = useState([])
-
-
   useEffect(() => {
          axios
         .get(`/api/user/sloanlacey89@gmail.com`)
         .then((res) =>  setShowState(res.data))
         .catch((err) => console.log(err));
-=======
-
-function SavedShows() {
-  const [showState, setShowState] = useState([]);
-
-  useEffect(async () => {
-    await axios
-      .get('/api/user/6083a140ebe6082055ddfdc7/shows')
-      .then((res) => {
-        console.log(res);
-        setShowState(res.data);
-      })
-      .catch((err) => console.log(err));
->>>>>>> master
-  }, []);
+  });
 
 // *****************************//
 //      CODE TO GET ALL USERS   //
+// *****************************//
+
+// *****************************//
+//      THIS ISN'T WORKING      //
 // *****************************//
 
 // function SavedShows() {
 //   const [userId, setUserId] = useState([]);
 //   const user = UserAuth();
 //   const [showState, setShowState] = useState([]);
-
 // *****************************//
 //      THIS ISN'T WORKING      //
 // *****************************//
