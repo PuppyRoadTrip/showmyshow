@@ -12,7 +12,7 @@ const TwitterAPIRoutes = require('./routes/twitterApi');
 const http = require('http').Server(app);
 const io = require('socket.io')(http, {
   cors: {
-    origin: 'http://localhost:3000',
+    origin: 'https://secure-waters-74854.herokuapp.com/',
     methods: ['GET', 'POST'],
     allowedHeaders: ['chat'],
     credentials: true
