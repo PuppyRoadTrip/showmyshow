@@ -28,6 +28,7 @@ function EventAccordion({ event } ) {
         info: event.info,
         pleaseNote: event.pleaseNote,
         image: event.images[1].url,
+        date: event.dates.start.localDate
       })
       .then((res) => console.log(res))
       .catch((err) => console.log(err));

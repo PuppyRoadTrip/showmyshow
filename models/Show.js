@@ -14,7 +14,10 @@ const showSchema = new Schema({
   date: {
     type: String,
   },
-  description: {
+  info: {
+    type: String,
+  },
+  pleaseNote: {
     type: String,
   },
   image: {
