@@ -39,9 +39,8 @@ function SavedShowCard({
           Info<i className="material-icons right">close</i>
         </span>
         <p>{info}</p>
-        <span className="card-title grey-text text-darken-4">
-          Please Note<i className="material-icons right">close</i>
-        </span>
+        <br></br>
+        <span className="card-title grey-text text-darken-4">Please Note</span>
         <p>{pleaseNote}</p>
       </div>
     </div>
