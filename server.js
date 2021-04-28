@@ -32,6 +32,16 @@ app.use(morgan('tiny'))
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'));
+  // Send every other request to the React app
+// Define any API routes before this runs
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, './client/build/index.html'));
+});
+} else {
+  app.use(express.static('/client/public'))
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, './client/public/index.html'));
+  });
 }
 
 // Define API routes here
@@ -39,11 +49,7 @@ app.use('/api/user', UserAPIRoutes)
 app.use('/api/shows', ShowsAPIRoutes)
 app.use('/api/twitter', TwitterAPIRoutes)
 
-// Send every other request to the React app
-// Define any API routes before this runs
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, './client/build/index.html'));
-});
+
 
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/showmyshow',  {
   useNewUrlParser: true,
