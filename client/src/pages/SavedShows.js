@@ -7,69 +7,26 @@ import CenteringColumn from '../components/MaterialColumn/CenteringColumn';
 import NavTabs from '../components/NavTabs/NavTabs';
 import SaveShowHeader from '../components/SaveShowHeader/SaveShowHeader';
 import axios from 'axios';
-import UserAuth from '../utils/userAuth';
-// *****************************//
-//      CODE WITH HARD RENDER   //
-// *****************************//
+import useUserAuth from '../utils/useUserAuth';
+
+
 function SavedShows() {
-  
-  const [showState, setShowState] = useState([])
+  const [user] = useUserAuth();
+  const [showState, setShowState] = useState([]);
   useEffect(() => {
-         axios
-        .get(`/api/user/sloanlacey89@gmail.com`)
-        .then((res) =>  setShowState(res.data))
+    if (user) {
+      axios
+        .get(`/api/user/${user}`)
+        .then((res) => {
+          console.log(res.data);
+          setShowState(res.data);
+        })
+
         .catch((err) => console.log(err));
-  });
+    }
+  }, [user]);
 
-// *****************************//
-//      CODE TO GET ALL USERS   //
-// *****************************//
-
-// *****************************//
-//      THIS ISN'T WORKING      //
-// *****************************//
-
-// function SavedShows() {
-//   const [userId, setUserId] = useState([]);
-//   const user = UserAuth();
-//   const [showState, setShowState] = useState([]);
-// *****************************//
-//      THIS ISN'T WORKING      //
-// *****************************//
-  // const getUserInfo = () => {
-  //   const authenticatedUser = UserAuth();
-  //   axios.get(`/api/user/users`).then((res) => {
-  //     const users = res.data;
-  //     users.map((user) => {
-  //       if (user.username == authenticatedUser) {
-  //         setUserId(user._id);
-  //         console.log(userId);
-  //       }
-  //     });
-  //   });
-  // };
-
-// *****************************//
-//      USE THIS                //
-// *****************************//
-  // const getUserInfo = () => {
-  //   const authenticatedUser = UserAuth();
-  //   axios.get(`/api/user/${authenticatedUser}`).then((res) => {
-  //     console.log(res.data);
-  //     setShowState(res.data);
-  //   });
-  // };
-
-  // getUserInfo();
-
-// *****************************//
-//     THIS ISN'T WORKING       //
-// *****************************//
-
-  // useEffect(() => {
-  //   getUserInfo();
-  // }, []);
-
+  
   return (
     <>
       <SaveShowHeader />
