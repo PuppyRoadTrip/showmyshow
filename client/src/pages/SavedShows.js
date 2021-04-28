@@ -49,7 +49,7 @@ function SavedShows() {
                 info={show.info}
                 pleaseNote={show.pleaseNote}
                 venue={show.venue}
-                ticketURl={show.ticketUrl}
+                ticketUrl={show.ticketUrl}
               />
             ))}
           />

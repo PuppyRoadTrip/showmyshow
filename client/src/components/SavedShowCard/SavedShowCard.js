@@ -29,14 +29,14 @@ function SavedShowCard({
         <p>Date: {date}</p>
         <p>Venue: {venue}</p>
         <p>
-          <a href={ticketUrl} target="_blank" rel="noopener noreferrer">
+          <a href={`${ticketUrl}`} target="_blank" rel="noopener noreferrer">
             Get Tickets
           </a>
         </p>
       </div>
       <div className="card-reveal">
         <span className="card-title grey-text text-darken-4">
-          Description<i className="material-icons right">close</i>
+          Info<i className="material-icons right">close</i>
         </span>
         <p>{info}</p>
         <span className="card-title grey-text text-darken-4">
