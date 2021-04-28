@@ -7,6 +7,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Button from '@material-ui/core/Button';
 import './Accordian.css';
 import axios from 'axios';
+import useUserAuth from "../../utils/useUserAuth"
 import SnackBar from '../SnackBar/SnackBar';
 
 export default function EventAccordions({ events, onClick }) {
@@ -15,11 +16,12 @@ export default function EventAccordions({ events, onClick }) {
   ));
 }
 
-function EventAccordion({ event }) {
+function EventAccordion({ event } ) {
+  const user = useUserAuth ();
   const saveShow = async (e) => {
     console.log(event.name, event._embedded.venues[0].name);
     await axios
-      .post('/api/user/6083a140ebe6082055ddfdc7/show', {
+      .post(`/api/user/${user}/show`, {
         title: event.name,
         ticketUrl: event.url,
         venue: event._embedded.venues[0].name,

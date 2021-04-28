@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+// import InternalHeader from '../components/InternalHeader/InternalHeader';
 import './Style.css';
 import SavedShowCard from '../components/SavedShowCard/SavedShowCard';
 import SpacingColumn from '../components/MaterialColumn/SpacingColumn';
@@ -6,20 +7,26 @@ import CenteringColumn from '../components/MaterialColumn/CenteringColumn';
 import NavTabs from '../components/NavTabs/NavTabs';
 import SaveShowHeader from '../components/SaveShowHeader/SaveShowHeader';
 import axios from 'axios';
+import useUserAuth from '../utils/useUserAuth';
+
 
 function SavedShows() {
+  const [user] = useUserAuth();
   const [showState, setShowState] = useState([]);
+  useEffect(() => {
+    if (user) {
+      axios
+        .get(`/api/user/${user}`)
+        .then((res) => {
+          console.log(res.data);
+          setShowState(res.data);
+        })
 
-  useEffect(async () => {
-    await axios
-      .get('/api/user/6083a140ebe6082055ddfdc7/shows')
-      .then((res) => {
-        console.log(res);
-        setShowState(res.data);
-      })
-      .catch((err) => console.log(err));
-  }, []);
+        .catch((err) => console.log(err));
+    }
+  }, [user]);
 
+  
   return (
     <>
       <SaveShowHeader />
