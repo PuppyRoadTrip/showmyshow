@@ -4,9 +4,10 @@ const path = require('path');
 const mongoose = require('mongoose');
 const PORT = process.env.PORT || 3001;
 const app = express();
-const UserAPIRoutes = require('./routes/UserAPI');
-const ShowsAPIRoutes = require('./routes/ShowsAPI');
-const TwitterAPIRoutes = require('./routes/twitterApi');
+const routes = require('./routes')
+// const UserAPIRoutes = require('./routes/UserAPI');
+// const ShowsAPIRoutes = require('./routes/ShowsAPI');
+// const TwitterAPIRoutes = require('./routes/TwitterAPI');
 
 // Hello
 // Darkness
@@ -34,20 +35,23 @@ if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'));
   // Send every other request to the React app
 // Define any API routes before this runs
-app.get('*', (req, res) => {
+app.get('/*', (req, res) => {
   res.sendFile(path.join(__dirname, './client/build/index.html'));
 });
 } else {
   app.use(express.static('/client/public'))
-  app.get('*', (req, res) => {
+  app.get('/*', (req, res) => {
     res.sendFile(path.join(__dirname, './client/public/index.html'));
   });
 }
 
 // Define API routes here
-app.use('/api/user', UserAPIRoutes)
-app.use('/api/shows', ShowsAPIRoutes)
-app.use('/api/twitter', TwitterAPIRoutes)
+// app.use('/api/user', UserAPIRoutes)
+// app.use('/api/shows', ShowsAPIRoutes)
+// app.use('/api/twitter', TwitterAPIRoutes)
+app.use(routes);
+
+
 
 
 
