@@ -1,6 +1,6 @@
 import React from 'react';
 import '../NavTabs/NavTabs.css';
-import useUserAuth from '../../utils/useUserAuth'
+import UseUserAuth from '../../utils/useUserAuth'
 
 function NavTabs() {
   return (
@@ -11,7 +11,7 @@ function NavTabs() {
             <div className="card" id="nav-card">
               <div className="card-content white-text">
                 <span className="card-title">
-                  Hello, <useUserAuth />
+                  Hello, <UseUserAuth />
                 </span>
                 <a
                   variant="contained"
