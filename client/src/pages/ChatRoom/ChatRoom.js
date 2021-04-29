@@ -5,7 +5,7 @@ import GreenRoomHeader from '../../components/GreenRoomHeader/GreenRoomHeader';
 import { Link } from 'react-router-dom';
 import NavTabs from '../../components/NavTabs/NavTabs';
 
-const socket = socketIOClient('/chat/', {
+const socket = socketIOClient('https://showmyshow.herokuapp.com/', {
   withCredentials: true,
   extraHeaders: {
     'my-custom-header': 'chat',
