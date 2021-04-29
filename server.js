@@ -12,8 +12,8 @@ const routes = require('./routes/Index')
 // Hello
 // Darkness
 //socket dependencies
-const https = require('https').Server(app);
-const io = require('socket.io')(https, {
+const http = require('http').Server(app);
+const io = require('socket.io')(http, {
   cors: {
     origin: 'https://showmyshow.herokuapp.com/',
     methods: ['GET', 'POST'],
@@ -76,6 +76,6 @@ io.on('connection', (socket) => {
   });
 });
 
-https.listen(PORT, () => {
+http.listen(PORT, () => {
   console.log(`🌎 ==> API server now on port ${PORT}!`);
 });   
