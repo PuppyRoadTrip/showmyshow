@@ -6,7 +6,7 @@ const PORT = process.env.PORT || 3001;
 const app = express();
 const UserAPIRoutes = require('./routes/UserAPI');
 const ShowsAPIRoutes = require('./routes/ShowsAPI');
-const TwitterAPIRoutes = require('./routes/twitterApi');
+const TwitterAPIRoutes = require('./routes/TwitterAPI');
 
 //socket dependencies
 const http = require('http').Server(app);
