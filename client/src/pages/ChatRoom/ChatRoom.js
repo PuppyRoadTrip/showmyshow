@@ -61,9 +61,6 @@ const ChatRoom = (props) => {
               </div>
               <div className="col s0 m0 l3"></div>
             </div>
-            {/* <p className="room-name">
-              Username: {username} Room: {roomId}
-            </p> */}
             <div className="messages-container">
               <ol className="messages-list">
                 {newMessage.map((message, i) => (
