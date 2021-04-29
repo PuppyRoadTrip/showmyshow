@@ -15,7 +15,7 @@ const awsconfig = {
 
 Amplify.configure(awsconfig);
 
-function UserAuth() {
+function useUserAuth() {
 
   const [userState, setUserState] = useState('');
 
@@ -29,4 +29,4 @@ function UserAuth() {
   return [userState]
 };
 
-export default UserAuth;
+export default useUserAuth;
