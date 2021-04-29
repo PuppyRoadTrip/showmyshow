@@ -6,7 +6,7 @@ import { Auth } from 'aws-amplify';
 
 Amplify.configure(awsconfig);
 
-function UserAuth() {
+function useUserAuth() {
 
   const [userState, setUserState] = useState('');
 
@@ -14,10 +14,10 @@ function UserAuth() {
     Auth.currentAuthenticatedUser().then((user) => {
       if (user.attributes.email === userState) return;
       setUserState(`${user.attributes.email}`);
-      // console.log('Current user is: ', user.attributes.email);
+      console.log('Current user is: ', user.attributes.email);
     });
   });
   return [userState]
 };
 
-export default UserAuth;
+export default useUserAuth;

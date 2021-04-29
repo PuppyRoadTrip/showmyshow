@@ -13,7 +13,7 @@ import axios from 'axios';
 import CenteringColumn from '../components/MaterialColumn/CenteringColumn';
 import twitterApi from '../utils/twitterApi';
 import TwitterCards from '../components/TwitterCard/TwitterCard';
-import UserAuth from '../utils/userAuth';
+import useUserAuth from '../utils/useUserAuth';
 
 function Landing() {
   const useStyles = makeStyles((theme) => ({
@@ -27,7 +27,7 @@ function Landing() {
   }));
 
   const classes = useStyles();
-  const [user] = UserAuth();
+  const [user] = useUserAuth();
   const [tweetState, setTweetState] = useState([]);
 
   useEffect(() => {
