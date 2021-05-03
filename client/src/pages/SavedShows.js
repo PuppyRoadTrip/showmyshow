@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-// import InternalHeader from '../components/InternalHeader/InternalHeader';
 import './Style.css';
 import SavedShowCard from '../components/SavedShowCard/SavedShowCard';
 import SpacingColumn from '../components/MaterialColumn/SpacingColumn';

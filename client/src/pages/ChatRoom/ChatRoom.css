@@ -1,14 +1,3 @@
-/* .chat-room-container {
-    position: fixed;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    display: flex;
-    flex-direction: column;
-    margin: 16px;
-} */
-
 #chat-card {
   background-color: #0da67b;
   text-align: center;
