@@ -62,7 +62,7 @@ ShowMyShow is an application that allows fans and bands to connect with one anot
 [ShowMyShow](https://showmyshow.herokuapp.com/)
 
 ## Screen Shot
-![HomePageScreenShot](./client/public/showmyshowscreenshot.png)
+![HomePageGif](./client/public/showmyshow.gif)
 
 ## Code Snippets
 
